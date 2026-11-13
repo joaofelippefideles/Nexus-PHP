@@ -1,0 +1,218 @@
+/* ==========================================================================
+   NEXUS TECH — Header
+   Mobile-first: menu hamburguer no mobile, menu completo no desktop.
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: var(--header-height);
+}
+
+/* --------------------------------------------------------------------------
+   LOGO
+-------------------------------------------------------------------------- */
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-family-brand);
+  font-weight: var(--font-black);
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-wide);
+  white-space: nowrap;
+}
+
+.site-header__logo-mark {
+  color: var(--color-text);
+}
+
+.site-header__logo-accent {
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   MENU HAMBURGUER (mobile)
+-------------------------------------------------------------------------- */
+
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: var(--hit-min);
+  height: var(--hit-min);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.nav-toggle:hover {
+  background: var(--color-surface-2);
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Estado aberto (JS adiciona .is-open no body/header) */
+.nav-open .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-open .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-open .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   MENU DE NAVEGAÇÃO
+-------------------------------------------------------------------------- */
+
+.main-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: var(--color-surface);
+  padding: var(--space-7) var(--space-4);
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-open .main-nav {
+  transform: translateX(0);
+}
+
+.main-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.main-nav__link {
+  display: block;
+  padding: var(--space-3) var(--space-2);
+  font-weight: var(--font-medium);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.main-nav__link:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+}
+
+.main-nav__link.is-active {
+  color: var(--color-primary-text);
+  font-weight: var(--font-bold);
+}
+
+/* ==========================================================================
+   TABLET / DESKTOP (menu horizontal)
+   ========================================================================== */
+
+@media (min-width: 900px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    inset: auto;
+    transform: none;
+    background: transparent;
+    padding: 0;
+    overflow: visible;
+    flex-direction: row;
+  }
+
+  .main-nav__list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .main-nav__link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BUSCA (header) — respeita o espaço disponível
+-------------------------------------------------------------------------- */
+
+.site-header__search {
+  display: none;
+  flex: 1;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .site-header__search {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   AÇÕES DO USUÁRIO (favoritos, carrinho, conta)
+-------------------------------------------------------------------------- */
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.icon-btn__label--account {
+  display: none;
+}
+
+/* ==========================================================================
+   LAYOUT MOBILE — reordena: linha1 (toggle+logo+ações), linha2 (busca)
+   ========================================================================== */
+
+@media (max-width: 899px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: var(--space-2);
+    row-gap: var(--space-2);
+  }
+
+  .site-header__search {
+    order: 10;
+    display: block;
+    flex-basis: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+}

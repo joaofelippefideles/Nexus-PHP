@@ -1,0 +1,386 @@
+/* ==========================================================================
+   NEXUS TECH — Catálogo de Produtos
+   Cabeçalho da página, breadcrumb, contador e grid do catálogo.
+   ========================================================================== */
+
+.catalog {
+  padding-block: var(--space-6) var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   CABEÇALHO DA PÁGINA
+-------------------------------------------------------------------------- */
+
+.catalog__header {
+  margin-bottom: var(--space-6);
+}
+
+.catalog__title {
+  font-size: var(--text-3xl);
+  margin-top: var(--space-2);
+}
+
+.catalog__title-accent {
+  color: var(--color-primary);
+}
+
+.catalog__note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.catalog__count {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--hit-min);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-weight: var(--font-bold);
+}
+
+/* --------------------------------------------------------------------------
+   BREADCRUMB
+-------------------------------------------------------------------------- */
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.breadcrumb__link {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb__link:hover {
+  color: var(--color-primary-text);
+}
+
+.breadcrumb__separator {
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.breadcrumb__current {
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+}
+
+/* --------------------------------------------------------------------------
+   GRID DO CATÁLOGO
+   Mantém os breakpoints do projeto. Adiciona o degrau de tablet (768px)
+   para distribuir melhor 2 → 4 colunas.
+-------------------------------------------------------------------------- */
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .catalog__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .catalog__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .catalog__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .catalog__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT DO CATÁLOGO (barra de filtros + conteúdo)
+-------------------------------------------------------------------------- */
+
+.catalog__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .catalog__layout {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+}
+
+.catalog__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BARRA LATERAL DE FILTROS
+-------------------------------------------------------------------------- */
+
+.catalog__filters {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.filters__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.filters__title {
+  font-size: var(--text-xl);
+}
+
+.filters__clear {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-primary-text);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.filters__clear:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+}
+
+.filters__clear:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* Busca no painel de filtros */
+.filters__search {
+  display: flex;
+}
+
+.filters__search-input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filters__search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.filters__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filters__legend {
+  font-family: var(--font-family-brand);
+  font-weight: var(--font-bold);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  padding: 0;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--hit-min);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.filter-option:hover {
+  background: var(--color-surface-2);
+}
+
+.filter-option input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BARRA DE ORDENAÇÃO / TOOLBAR
+-------------------------------------------------------------------------- */
+
+.catalog__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: var(--hit-min);
+}
+
+.catalog__sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.catalog__sort-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.catalog__sort-select {
+  padding: var(--space-2) var(--space-3);
+  padding-right: var(--space-7);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.catalog__sort-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+/* --------------------------------------------------------------------------
+   ESTADO VAZIO
+-------------------------------------------------------------------------- */
+
+.catalog__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding-block: var(--space-8);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+}
+
+.catalog__empty-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.catalog__empty-title {
+  font-family: var(--font-family-brand);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.catalog__empty-text {
+  font-size: var(--text-sm);
+  max-width: 36ch;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   PAGINAÇÃO
+-------------------------------------------------------------------------- */
+
+.catalog__pagination-root,
+.catalog__pagination {
+  margin-top: var(--space-2);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--hit-min);
+  min-height: var(--hit-min);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagination__btn.is-current {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.pagination__btn--page {
+  min-width: var(--hit-min);
+}

@@ -1,0 +1,326 @@
+/* ==========================================================================
+   NEXUS TECH — Home
+   Hero, categorias, destaques, ofertas, mais vendidos, newsletter.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SEÇÕES — título padrão da página inicial
+-------------------------------------------------------------------------- */
+
+.section-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-5);
+}
+
+.section-note {
+  font-size: var(--text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   HERO / BANNER PRINCIPAL
+-------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.35), transparent 45%),
+    radial-gradient(circle at 15% 80%, rgba(6, 182, 212, 0.30), transparent 50%),
+    var(--color-hero-bg);
+  color: var(--color-hero-text);
+  padding: var(--space-8) 0;
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-brand-400);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.hero__title {
+  font-size: var(--text-4xl);
+  color: var(--color-hero-text);
+  line-height: var(--leading-tight);
+  max-width: 20ch;
+}
+
+.hero__title-highlight {
+  color: var(--color-brand-400);
+}
+
+.hero__subtitle {
+  margin-top: var(--space-3);
+  color: var(--color-hero-muted);
+  font-size: var(--text-lg);
+  max-width: 46ch;
+}
+
+.hero__cta {
+  margin-top: var(--space-5);
+}
+
+.hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Objeto visual abstrato no hero (placeholders sem imagem externa) */
+.hero__device {
+  width: 240px;
+  height: 160px;
+  background: linear-gradient(160deg, var(--gray-700), var(--gray-900));
+  border: 1px solid var(--gray-700);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(6, 182, 212, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__device::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(135deg, rgba(6, 182, 212, 0.55), rgba(139, 92, 246, 0.55));
+  animation: hero-pulse 3s var(--ease-in-out) infinite;
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   CATEGORIAS
+-------------------------------------------------------------------------- */
+
+.categories {
+  padding-block: var(--space-7);
+}
+
+.categories__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.categories__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+  text-align: center;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.categories__card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.categories__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+@media (min-width: 600px) {
+  .categories__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PRODUTOS EM DESTAQUE / MAIS VENDIDOS
+-------------------------------------------------------------------------- */
+
+.products-section {
+  padding-block: var(--space-7);
+  background: var(--color-surface-2);
+}
+
+.products-section--alt {
+  background: var(--color-bg);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   OFERTAS
+-------------------------------------------------------------------------- */
+
+.offers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-7);
+  margin-block: var(--space-7);
+  background: var(--color-brand-grad);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+}
+
+.offers__eyebrow {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-2);
+}
+
+.offers__title {
+  font-size: var(--text-3xl);
+  color: var(--color-text-inverse);
+}
+
+.offers__text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: var(--space-2);
+}
+
+.offers__cta {
+  background: var(--color-text-inverse);
+  color: var(--color-accent-700);
+  flex-shrink: 0;
+}
+
+.offers__cta:hover {
+  background: var(--gray-100);
+}
+
+/* --------------------------------------------------------------------------
+   NEWSLETTER
+-------------------------------------------------------------------------- */
+
+.newsletter {
+  padding-block: var(--space-7);
+}
+
+.newsletter__inner {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.newsletter__title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.newsletter__text {
+  margin-bottom: var(--space-5);
+}
+
+.newsletter__form {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.newsletter__input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--hit-min);
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.newsletter__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.newsletter__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+/* --------------------------------------------------------------------------
+   HERO — TABLET / DESKTOP
+-------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .hero { padding: var(--space-9) 0; }
+
+  .hero__grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .hero__title { font-size: var(--text-5xl); }
+
+  .hero__device {
+    width: 320px;
+    height: 220px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CARDS DA HOME — placeholder de imagem
+   Substitui o texto "(imagem)" por um bloco visual consistente com o SVG
+   ilustrativo do catálogo (gradiente + inicial da categoria).
+-------------------------------------------------------------------------- */
+
+.product-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family-brand);
+  font-weight: var(--font-black);
+  font-size: var(--text-5xl);
+  color: rgba(255, 255, 255, 0.95);
+  background-image: linear-gradient(135deg, #0e7490 0%, #6d28d9 100%);
+}

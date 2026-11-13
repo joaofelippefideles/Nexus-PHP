@@ -1,0 +1,36 @@
+{
+  "name": "nexus-tech-api",
+  "version": "1.0.0",
+  "description": "API REST do catálogo Nexus Tech (Node.js + Express + MySQL)",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "migrate": "node src/scripts/migrate.js",
+    "seed:admin": "node src/scripts/create-admin.js"
+  },
+  "keywords": [
+    "nexus-tech",
+    "ecommerce",
+    "api",
+    "catalogo"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

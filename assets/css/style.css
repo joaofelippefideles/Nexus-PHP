@@ -1,0 +1,45 @@
+/* ==========================================================================
+   NEXUS TECH — Style (cascata de entrada)
+   Ponto único de entrada de CSS. Importa os módulos na ordem correta.
+   Novos módulos (components, header, footer, home, catalog, ...) serão
+   adicionados nesta cascata nas Sprints correspondentes.
+   ========================================================================== */
+
+/* 1. Tokens do design system */
+@import url("tokens.css");
+
+/* 2. Reset, estilos globais e utilitários */
+@import url("base.css");
+
+/* 3. Componentes reutilizáveis */
+@import url("components.css");
+
+/* 4. Header / navegação */
+@import url("header.css");
+
+/* 5. Footer */
+@import url("footer.css");
+
+/* 6. Página Home */
+@import url("home.css");
+
+/* 7. Catálogo de produtos */
+@import url("catalog.css");
+
+/* 8. Página do produto */
+@import url("product.css");
+
+/* 9. Páginas institucionais e de atendimento */
+@import url("institutional.css");
+
+/* 10. Página do carrinho e checkout */
+@import url("cart.css");
+
+/* 11. Checkout completo */
+@import url("checkout.css");
+
+/* 12. Perfil / Minha conta */
+@import url("profile.css");
+
+/* 13. Cadastro de usuário */
+@import url("auth.css");

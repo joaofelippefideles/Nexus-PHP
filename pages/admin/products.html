@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Produtos — Nexus Tech</title>
+  <meta name="description" content="Gestão de produtos do catálogo Nexus Tech via API real.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body data-page="admin-products">
+
+  <div class="admin-shell">
+
+    <header class="admin-topbar">
+      <a href="index.html" class="admin-topbar__brand" aria-label="Nexus Tech — Painel">
+        NEXUS<span class="admin-topbar__brand-accent">TECH</span>
+        <span class="admin-topbar__brand-accent"> Admin</span>
+      </a>
+
+      <nav class="admin-nav" aria-label="Navegação do painel">
+        <a href="index.html" class="admin-nav__link">Dashboard</a>
+        <a href="products.html" class="admin-nav__link is-active" aria-current="page">Produtos</a>
+        <a href="brands.html" class="admin-nav__link">Marcas</a>
+        <a href="categories.html" class="admin-nav__link">Categorias</a>
+      </nav>
+
+      <div class="admin-topbar__session">
+        <span class="admin-topbar__who">
+          <span class="admin-topbar__name" id="admin-topbar-name"></span>
+          <span class="admin-topbar__email" id="admin-topbar-email"></span>
+        </span>
+        <button type="button" class="admin-topbar__logout" id="admin-logout">Sair</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-pagehead">
+        <div>
+          <h1 class="admin-main__title">Produtos</h1>
+          <p class="admin-main__lead">
+            Gerencie o catálogo da Nexus Tech — dados consumidos da API real.
+          </p>
+        </div>
+        <a href="product-form.html" class="admin-btn admin-btn--primary">Novo produto</a>
+      </div>
+
+      <div class="admin-alert admin-alert--success" id="products-alert" hidden role="status"></div>
+
+      <section class="admin-card">
+
+        <div class="admin-toolbar">
+          <label class="admin-toolbar__field admin-toolbar__field--grow">
+            <span class="admin-toolbar__label">Buscar</span>
+            <input type="search" id="filter-q" class="admin-input"
+                   placeholder="Nome, slug, marca ou categoria" autocomplete="off">
+          </label>
+          <label class="admin-toolbar__field">
+            <span class="admin-toolbar__label">Categoria</span>
+            <select id="filter-category" class="admin-input">
+              <option value="">Todas</option>
+            </select>
+          </label>
+          <label class="admin-toolbar__field">
+            <span class="admin-toolbar__label">Marca</span>
+            <select id="filter-brand" class="admin-input">
+              <option value="">Todas</option>
+            </select>
+          </label>
+          <label class="admin-toolbar__field">
+            <span class="admin-toolbar__label">Status</span>
+            <select id="filter-status" class="admin-input">
+              <option value="all">Todos</option>
+              <option value="active">Ativos</option>
+              <option value="inactive">Inativos</option>
+            </select>
+          </label>
+          <button type="button" id="filter-search" class="admin-btn admin-btn--secondary">
+            Buscar
+          </button>
+        </div>
+
+        <div class="admin-state" id="products-loading" hidden>
+          <span class="admin-loading__spinner" aria-hidden="true"></span>
+          Carregando produtos...
+        </div>
+
+        <div class="admin-state admin-state--empty" id="products-empty" hidden>
+          Nenhum produto encontrado.
+        </div>
+
+        <div class="admin-state admin-state--error" id="products-error" hidden>
+          <p id="products-error-msg"></p>
+          <button type="button" id="products-retry" class="admin-btn admin-btn--secondary">
+            Tentar novamente
+          </button>
+        </div>
+
+        <div class="admin-table-wrap" id="products-list" hidden>
+          <table class="admin-table">
+            <caption class="visually-hidden">Produtos do catálogo</caption>
+            <thead>
+              <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Marca</th>
+                <th scope="col" class="cell-num">Preço</th>
+                <th scope="col" class="cell-num">Estoque</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="products-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="admin-pagination" id="products-pagination" hidden>
+          <button type="button" id="page-prev" class="admin-btn admin-btn--small" disabled>Anterior</button>
+          <span class="admin-pagination__info" id="products-pageinfo"></span>
+          <button type="button" id="page-next" class="admin-btn admin-btn--small" disabled>Próxima</button>
+        </div>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script type="module" src="../../assets/js/modules/admin/shell.js"></script>
+  <script type="module" src="../../assets/js/modules/admin/products.js"></script>
+</body>
+</html>

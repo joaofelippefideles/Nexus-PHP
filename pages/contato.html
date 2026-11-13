@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Contato — Nexus Tech</title>
+  <meta name="description" content="Entre em contato com a Nexus Tech: fale com nosso atendimento por e-mail, telefone ou formulário. Atendimento de segunda a sexta.">
+  <meta property="og:title" content="Contato — Nexus Tech">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Fale com a Nexus Tech pelo formulário, e-mail ou telefone.">
+
+  <!-- Favicon (placeholder SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="contact">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <a href="../index.html" class="site-header__logo" aria-label="Nexus Tech — Página inicial">
+        <span class="site-header__logo-mark">NEXUS</span>
+        <span class="site-header__logo-accent">TECH</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Home</a></li>
+          <li><a href="produtos.html" class="main-nav__link">Produtos</a></li>
+          <li><a href="../index.html#ofertas" class="main-nav__link">Ofertas</a></li>
+          <li><a href="contato.html" class="main-nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <form class="site-header__search search" role="search" aria-label="Buscar produtos">
+        <span class="search__icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <label class="sr-only" for="search-header">Buscar produtos, marcas e categorias</label>
+        <input
+          type="search"
+          id="search-header"
+          name="q"
+          class="search__input"
+          placeholder="Buscar produtos, marcas e categorias..."
+          autocomplete="off"
+        >
+        <button type="submit" class="search__btn">Buscar</button>
+      </form>
+
+      <div class="site-header__actions">
+
+        <button type="button" class="icon-btn" aria-label="Favoritos">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="icon-btn__count" id="favorites-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Favoritos</span>
+        </button>
+
+        <button type="button" class="icon-btn" aria-label="Carrinho de compras">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="icon-btn__count" id="cart-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Carrinho</span>
+        </button>
+
+        <a href="perfil.html" class="icon-btn icon-btn__label--account" aria-label="Minha conta">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="icon-btn__label">Minha conta</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL — CONTATO
+  ============================================================= -->
+  <main>
+    <section class="institutional" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="institutional__header">
+
+          <nav class="breadcrumb" aria-label="Trilha de navegação">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="../index.html" class="breadcrumb__link">Home</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <a href="ajuda.html" class="breadcrumb__link">Ajuda</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__current" aria-current="page">Contato</span>
+              </li>
+            </ol>
+          </nav>
+
+          <h1 id="contact-title" class="institutional__title">
+            Entre em <span class="institutional__title-accent">contato</span>
+          </h1>
+
+          <p class="institutional__lead">
+            Preencha o formulário abaixo e nossa equipe retornará em até 1 dia
+            útil. Você também pode falar conosco pelos canais ao lado.
+          </p>
+
+        </div>
+
+        <div class="contact-layout">
+
+          <!-- Formulário (simulado — não envia dados ao servidor) -->
+          <form class="contact-form" id="contact-form" novalidate>
+            <fieldset class="filters__group">
+              <legend class="filters__legend">Envie sua mensagem</legend>
+
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-name">Nome completo</label>
+                <input
+                  class="contact-form__input"
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  data-validate="text"
+                  autocomplete="name"
+                  required
+                  placeholder="Seu nome"
+                >
+                <p class="contact-form__error" hidden>Informe seu nome (mínimo 2 letras).</p>
+              </div>
+
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-email">E-mail</label>
+                <input
+                  class="contact-form__input"
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  data-validate="email"
+                  autocomplete="email"
+                  required
+                  placeholder="voce@exemplo.com"
+                >
+                <p class="contact-form__error" hidden>Informe um e-mail válido.</p>
+              </div>
+
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-subject">Assunto</label>
+                <select class="contact-form__select" id="contact-subject" name="subject" data-validate="subject" required>
+                  <option value="">Selecione um assunto</option>
+                  <option value="pedido">Dúvida sobre pedido</option>
+                  <option value="pagamento">Pagamento / nota fiscal</option>
+                  <option value="entrega">Entrega / rastreamento</option>
+                  <option value="troca">Troca / devolução</option>
+                  <option value="produto">Produto / garantia</option>
+                  <option value="outros">Outros assuntos</option>
+                </select>
+                <p class="contact-form__error" hidden>Selecione um assunto.</p>
+              </div>
+
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-message">Mensagem</label>
+                <textarea
+                  class="contact-form__textarea"
+                  id="contact-message"
+                  name="message"
+                  data-validate="message"
+                  required
+                  placeholder="Escreva sua mensagem (mínimo 10 caracteres)..."
+                ></textarea>
+                <p class="contact-form__error" hidden>Escreva uma mensagem com ao menos 10 caracteres.</p>
+              </div>
+
+              <div class="contact-form__actions">
+                <button type="submit" class="btn btn--primary" id="contact-submit">Enviar mensagem</button>
+                <p class="contact-form__note">
+                  Este envio é apenas uma simulação — nenhum dado é enviado ao servidor.
+                </p>
+              </div>
+
+            </fieldset>
+
+            <p class="alert contact-form__feedback" id="contact-feedback" role="status" aria-live="polite" hidden></p>
+          </form>
+
+          <!-- Informações de contato (dados fictícios) -->
+          <aside class="contact-info" aria-label="Informações de contato da Nexus Tech">
+
+            <div class="contact-info__card">
+              <h2 class="contact-info__title">Canais de atendimento</h2>
+              <ul class="contact-info__list">
+                <li>
+                  <strong>E-mail:</strong>
+                  <a href="mailto:contato@nexustech.com.br">contato@nexustech.com.br</a>
+                </li>
+                <li>
+                  <strong>WhatsApp:</strong>
+                  <a href="tel:+551140009900">(11) 4000-9900</a>
+                </li>
+                <li>
+                  <strong>Telefone:</strong>
+                  <a href="tel:+551140009900">(11) 4000-9900</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact-info__card">
+              <h2 class="contact-info__title">Horário de atendimento</h2>
+              <p class="contact-info__text">Atendimento humano nos seguintes horários:</p>
+              <div class="contact-info__hours">
+                <span class="contact-info__hours-day">Segunda a sexta</span>
+                <span>8h às 18h</span>
+              </div>
+              <div class="contact-info__hours">
+                <span class="contact-info__hours-day">Sábado</span>
+                <span>9h às 13h</span>
+              </div>
+              <div class="contact-info__hours">
+                <span class="contact-info__hours-day">Domingo e feriados</span>
+                <span>Fechado</span>
+              </div>
+            </div>
+
+            <div class="contact-info__card">
+              <h2 class="contact-info__title">Endereço</h2>
+              <p class="contact-info__text">
+                Avenida Tecnológica, 1000 — Torre Norte, Sala 1201
+                <br>
+                Jardim Digital — São Paulo/SP — CEP 04555-000
+              </p>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand-col">
+          <p class="site-footer__brand">NEXUS<span class="site-footer__brand-accent">TECH</span></p>
+          <p class="site-footer__tagline">Tecnologia que conecta você ao futuro.</p>
+        </div>
+
+        <nav aria-label="Loja">
+          <p class="site-footer__heading">Loja</p>
+          <ul class="site-footer__list">
+            <li><a href="produtos.html" class="site-footer__link">Produtos</a></li>
+            <li><a href="../index.html#ofertas" class="site-footer__link">Ofertas</a></li>
+            <li><a href="../index.html#bestsellers-title" class="site-footer__link">Mais vendidos</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Atendimento">
+          <p class="site-footer__heading">Atendimento</p>
+          <ul class="site-footer__list">
+            <li><a href="ajuda.html" class="site-footer__link">Central de ajuda</a></li>
+            <li><a href="contato.html" class="site-footer__link" aria-current="page">Contato</a></li>
+            <li><a href="faq.html" class="site-footer__link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Institucional">
+          <p class="site-footer__heading">Institucional</p>
+          <ul class="site-footer__list">
+            <li><a href="sobre.html" class="site-footer__link">Sobre nós</a></li>
+            <li><a href="privacidade.html" class="site-footer__link">Privacidade</a></li>
+            <li><a href="termos.html" class="site-footer__link">Termos</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__heading">Redes sociais</p>
+          <div class="site-footer__social">
+            <a href="#" class="site-footer__social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="site-footer__social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="site-footer__social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__payments" aria-label="Formas de pagamento aceitas">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">MASTERCARD</span>
+          <span class="pay-badge">PIX</span>
+          <span class="pay-badge">BOLETO</span>
+        </div>
+        <p class="site-footer__copy">© <span id="footer-year">2026</span> Nexus Tech. Todos os direitos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/modules/header.js"></script>
+  <script src="../assets/js/modules/institutional/contact.js"></script>
+</body>
+</html>

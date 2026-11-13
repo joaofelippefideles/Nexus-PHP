@@ -1,0 +1,571 @@
+/* ==========================================================================
+   NEXUS TECH — Perfil / Minha conta
+   Layout da conta: menu lateral, painéis, cards de visão geral, endereços,
+   favoritos e preferências. Reutiliza tokens, .btn, .alert, .badge,
+   .breadcrumb, .cart-empty e o padrão de formulário .contact-form__*.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LAYOUT GERAL DA PÁGINA
+-------------------------------------------------------------------------- */
+
+.profile {
+  padding-block: var(--space-5) var(--space-8);
+}
+
+.profile__header {
+  margin-bottom: var(--space-5);
+}
+
+.profile__title {
+  font-size: var(--text-3xl);
+  margin-top: var(--space-2);
+}
+
+.profile__title-accent {
+  color: var(--color-primary);
+}
+
+.profile__lead {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.profile__lead strong {
+  color: var(--color-text);
+}
+
+.profile-demo {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT: menu lateral + conteúdo
+-------------------------------------------------------------------------- */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .profile-layout {
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  }
+}
+
+.profile-content {
+  min-width: 0;
+}
+
+.profile-panel {
+  scroll-margin-top: calc(var(--header-height) + var(--space-3));
+}
+
+.profile-nav {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+}
+
+.profile-nav__title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3);
+}
+
+.profile-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.profile-nav__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--hit-min);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: var(--font-medium);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.profile-nav__link:hover {
+  background: var(--color-surface-2);
+}
+
+.profile-nav__link.is-active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-weight: var(--font-semibold);
+}
+
+/* --------------------------------------------------------------------------
+   PAINÉIS
+-------------------------------------------------------------------------- */
+
+.profile-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+@media (min-width: 600px) {
+  .profile-panel {
+    padding: var(--space-6);
+  }
+}
+
+.profile-panel[hidden] {
+  display: none;
+}
+
+/* Estados vazios/convite usam .cart-empty (display:flex), que sobrescreve o
+   atributo hidden do HTML. Garante que estados fechados fiquem invisíveis. */
+.profile-panel .cart-empty[hidden] {
+  display: none;
+}
+
+.profile-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.profile-panel__title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+
+.profile-panel__head .profile-panel__title {
+  margin-bottom: 0;
+}
+
+.profile-panel__title[tabindex="-1"] {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   VISÃO GERAL — cards de resumo
+-------------------------------------------------------------------------- */
+
+.profile-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .profile-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.profile-card__title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.profile-card__value {
+  font-family: var(--font-family-brand);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-black);
+  color: var(--color-primary-text);
+  overflow-wrap: anywhere;
+}
+
+.profile-card__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.profile-card .btn {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   ENDEREÇOS — lista e ações
+-------------------------------------------------------------------------- */
+
+.profile-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.profile-address {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.profile-address__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.profile-address__head strong {
+  font-size: var(--text-base);
+}
+
+.profile-address__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.profile-address__actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   ENDEREÇOS — formulário
+-------------------------------------------------------------------------- */
+
+.profile-address-form {
+  margin-top: var(--space-4);
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .address-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .address-grid__full {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   FAVORITOS — lista
+-------------------------------------------------------------------------- */
+
+.profile-fav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.profile-fav__item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 600px) {
+  .profile-fav__item {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    gap: var(--space-4);
+  }
+}
+
+.profile-fav__media {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .profile-fav__media {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.profile-fav__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-fav__info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.profile-fav__name {
+  color: var(--color-primary-text);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+}
+
+.profile-fav__name:hover {
+  text-decoration: underline;
+}
+
+.profile-fav__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.profile-fav__price {
+  font-weight: var(--font-bold);
+}
+
+/* --------------------------------------------------------------------------
+   PEDIDOS — histórico do usuário
+-------------------------------------------------------------------------- */
+
+.profile-orders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pedido {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.pedido__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.pedido__number {
+  font-size: var(--text-base);
+  color: var(--color-primary-text);
+}
+
+.pedido__status {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--hit-min);
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.pedido__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.pedido__toggle {
+  margin-top: var(--space-3);
+}
+
+.pedido-details {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.pedido-details h4 {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.pedido-details h4:first-child {
+  margin-top: 0;
+}
+
+.pedido-items {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pedido-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+.pedido-item__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.pedido-item__main strong {
+  font-weight: var(--font-semibold);
+  overflow-wrap: anywhere;
+}
+
+.pedido-item__meta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.pedido-item__total {
+  font-weight: var(--font-bold);
+  white-space: nowrap;
+}
+
+.pedido-details__cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+@media (min-width: 600px) {
+  .pedido-details__cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pedido-summary {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pedido-summary div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.pedido-summary dt {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.pedido-summary dd {
+  margin: 0;
+  font-weight: var(--font-semibold);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.pedido-summary__total dt,
+.pedido-summary__total dd {
+  color: var(--color-primary-text);
+  font-weight: var(--font-bold);
+}
+
+/* --------------------------------------------------------------------------
+   CONFIGURAÇÕES — preferências
+-------------------------------------------------------------------------- */
+
+.profile-prefs {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-pref {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.profile-pref:first-of-type {
+  border-top: none;
+}
+
+.profile-pref__label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  cursor: pointer;
+}
+
+.profile-pref__label span {
+  font-weight: var(--font-semibold);
+}
+
+.profile-pref__label small {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.profile-pref__input {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: var(--space-1);
+  accent-color: var(--color-primary);
+}

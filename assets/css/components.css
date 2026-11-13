@@ -1,0 +1,500 @@
+/* ==========================================================================
+   NEXUS TECH — Componentes reutilizáveis
+   Botões, badges, cards de produto, rating, ícones, busca, alertas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BOTÕES
+-------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--hit-min);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-decoration: none;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+  border: 2px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Primário — acento ciano */
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-brand);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+  transform: translateY(1px);
+}
+
+/* Secundário — acento roxo */
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.btn--accent:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Outline — contorno do acento */
+.btn--outline {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-primary-soft);
+}
+
+/* Ghost / texto */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn--ghost:hover {
+  background: var(--color-surface-2);
+}
+
+/* Invertido — usado sobre fundos escuros (hero/footer) */
+.btn--inverse {
+  background: var(--color-text-inverse);
+  color: var(--color-text);
+}
+
+.btn--inverse:hover {
+  background: var(--gray-200);
+}
+
+.btn--lg {
+  min-height: calc(var(--hit-min) + 8px);
+  padding-inline: var(--space-7);
+  font-size: var(--text-base);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   BADGES / ETIQUETAS
+-------------------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.badge--discount {
+  background: var(--color-discount-soft);
+  color: var(--color-green-500);
+}
+
+.badge--new {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+}
+
+.badge--bestseller {
+  background: var(--color-amber-500);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   RATING / ESTRELAS
+-------------------------------------------------------------------------- */
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.rating__stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-brand-500);
+  letter-spacing: var(--tracking-normal);
+}
+
+.rating__value {
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+}
+
+.rating__count {
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   CARD DE PRODUTO
+-------------------------------------------------------------------------- */
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base),
+              transform var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-strong);
+  transform: translateY(-4px);
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__badges {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  z-index: var(--z-base);
+}
+
+/* Botão favorito no card */
+.product-card__fav {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: var(--hit-min);
+  height: var(--hit-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  box-shadow: var(--shadow-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card__fav:hover {
+  color: var(--color-danger);
+  transform: scale(1.1);
+}
+
+/* v2.5 — estado ativo do favorito nos cards (home/catálogo). */
+.product-card__fav.is-faved {
+  color: var(--color-danger);
+  background: var(--color-danger-soft);
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.product-card__brand {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Imagem do produto (Sprint 3 — SVG ilustrativo; real via API no futuro) */
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Disponibilidade do estoque */
+.product-card__stock {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+}
+
+.product-card__stock--ok {
+  color: var(--color-success);
+}
+
+.product-card__stock--out {
+  color: var(--color-danger);
+}
+
+/* Ações em pilha/coluna (Ver produto + Adicionar) */
+.product-card__actions--split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.product-card__name {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  line-height: var(--leading-tight);
+}
+
+.product-card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.product-card__price-old {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.product-card__price-current {
+  font-size: var(--text-xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+}
+
+.product-card__actions {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   BUSCA (campo do header e hero)
+-------------------------------------------------------------------------- */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.search__icon {
+  display: flex;
+  align-items: center;
+  padding-left: var(--space-4);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: var(--space-3) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.search__btn {
+  margin: 4px;
+  padding-inline: var(--space-5);
+  align-self: stretch;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  transition: background-color var(--transition-fast);
+}
+
+.search__btn:hover {
+  background: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   ÍCONES (inline SVG)
+-------------------------------------------------------------------------- */
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+/* Botão ícone (ações do header) */
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: var(--hit-min);
+  min-height: var(--hit-min);
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.icon-btn:hover {
+  color: var(--color-primary-text);
+  background: var(--color-primary-soft);
+}
+
+/* v2.5 — atalhos do header viram links (mantém o mesmo visual) */
+a.icon-btn {
+  text-decoration: none;
+}
+
+.icon-btn .icon {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+/* Contador (carrinho / favoritos) */
+.icon-btn__count {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-danger);
+  color: var(--color-text-inverse);
+  font-size: 0.7rem;
+  font-weight: var(--font-bold);
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------------------------------------
+   STEPPER DE QUANTIDADE (página do produto e carrinho)
+-------------------------------------------------------------------------- */
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.qty-stepper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.qty-stepper__btn {
+  width: var(--hit-min);
+  height: var(--hit-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  background: var(--color-surface-2);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.qty-stepper__btn:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+}
+
+.qty-stepper__btn:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.qty-stepper__input {
+  width: 56px;
+  height: var(--hit-min);
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  background: var(--color-surface);
+  color: var(--color-text);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.qty-stepper__input::-webkit-outer-spin-button,
+.qty-stepper__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   ALERTAS / FEEDBACK
+-------------------------------------------------------------------------- */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  border: 1px solid transparent;
+}
+
+/* v2.5 — feedback vazio (ex.: <p class="alert" hidden>) não forma barra
+   visível: a regra display:flex acima sobrepunha o atributo hidden. */
+.alert[hidden] {
+  display: none;
+}
+
+.alert--success { background: var(--color-success-soft); color: var(--color-success); }
+.alert--info    { background: var(--color-primary-soft); color: var(--color-primary-text); }
+.alert--warning { background: var(--color-warning-soft); color: var(--color-warning); }
+.alert--danger  { background: var(--color-danger-soft); color: var(--color-danger-text); }

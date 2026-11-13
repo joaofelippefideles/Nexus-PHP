@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Minha conta — Nexus Tech</title>
+  <meta name="description" content="Sua conta na Nexus Tech: dados, pedidos, endereços, favoritos e preferências. Conta demonstrativa — dados salvos apenas no navegador.">
+  <meta property="og:title" content="Minha conta — Nexus Tech">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Gerencie seus dados, pedidos, endereços, favoritos e preferências.">
+
+  <!-- Favicon (placeholder SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="perfil">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <a href="../index.html" class="site-header__logo" aria-label="Nexus Tech — Página inicial">
+        <span class="site-header__logo-mark">NEXUS</span>
+        <span class="site-header__logo-accent">TECH</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Home</a></li>
+          <li><a href="produtos.html" class="main-nav__link">Produtos</a></li>
+          <li><a href="../index.html#ofertas" class="main-nav__link">Ofertas</a></li>
+          <li><a href="contato.html" class="main-nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <form class="site-header__search search" role="search" aria-label="Buscar produtos">
+        <span class="search__icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <label class="sr-only" for="search-header">Buscar produtos, marcas e categorias</label>
+        <input
+          type="search"
+          id="search-header"
+          name="q"
+          class="search__input"
+          placeholder="Buscar produtos, marcas e categorias..."
+          autocomplete="off"
+        >
+        <button type="submit" class="search__btn">Buscar</button>
+      </form>
+
+      <div class="site-header__actions">
+
+        <button type="button" class="icon-btn" aria-label="Favoritos">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="icon-btn__count" id="favorites-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Favoritos</span>
+        </button>
+
+        <button type="button" class="icon-btn" aria-label="Carrinho de compras">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="icon-btn__count" id="cart-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Carrinho</span>
+        </button>
+
+        <a href="perfil.html" class="icon-btn icon-btn__label--account" aria-label="Minha conta" aria-current="page">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="icon-btn__label">Minha conta</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL — MINHA CONTA
+  ============================================================= -->
+  <main>
+    <section class="profile" aria-labelledby="profile-title">
+      <div class="container">
+
+        <div class="profile__header">
+
+          <nav class="breadcrumb" aria-label="Trilha de navegação">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="../index.html" class="breadcrumb__link">Home</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__current" aria-current="page">Minha conta</span>
+              </li>
+            </ol>
+          </nav>
+
+          <h1 id="profile-title" class="profile__title">
+            Minha <span class="profile__title-accent">conta</span>
+          </h1>
+
+          <p class="profile__lead">
+            Olá, <strong id="profile-greeting">visitante</strong>! Gerencie seus dados, pedidos,
+            endereços, favoritos e preferências em um só lugar.
+          </p>
+
+          <p class="profile-demo" role="note">
+            Conta demonstrativa — nenhuma autenticação é exigida. Os dados
+            permanecem apenas no seu navegador (localStorage).
+          </p>
+
+          <!-- Estado não autenticado (v2.1) — controlado pelo profile.js -->
+          <div class="profile-auth" id="profile-auth" hidden>
+            <p class="profile-auth__text">
+              Faça login na sua conta cadastrada para gerenciar seus dados
+              como usuário autenticado.
+            </p>
+            <a href="login.html" class="btn btn--primary">Entrar na minha conta</a>
+          </div>
+
+        </div>
+
+        <p class="sr-only" id="profile-status" role="status" aria-live="polite"></p>
+
+        <div class="profile-layout">
+
+          <nav class="profile-nav" id="profile-nav" aria-label="Menu da conta">
+            <h2 class="profile-nav__title">Sua conta</h2>
+            <ul class="profile-nav__list">
+              <li>
+                <a class="profile-nav__link is-active" href="#visao-geral" data-section="overview" aria-current="true">Visão geral</a>
+              </li>
+              <li>
+                <a class="profile-nav__link" href="#meus-dados" data-section="dados">Meus dados</a>
+              </li>
+              <li>
+                <a class="profile-nav__link" href="#meus-pedidos" data-section="pedidos">Meus pedidos</a>
+              </li>
+              <li>
+                <a class="profile-nav__link" href="#enderecos" data-section="enderecos">Endereços</a>
+              </li>
+              <li>
+                <a class="profile-nav__link" href="#favoritos" data-section="favoritos">Favoritos</a>
+              </li>
+              <li>
+                <a class="profile-nav__link" href="#configuracoes" data-section="config">Configurações</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="profile-content" id="profile-content">
+
+            <!-- Visão geral -->
+            <section class="profile-panel" id="visao-geral" data-panel="overview" aria-labelledby="overview-title">
+              <h2 class="profile-panel__title" id="overview-title" tabindex="-1">Visão geral</h2>
+
+              <div class="profile-cards">
+
+                <article class="profile-card">
+                  <h3 class="profile-card__title">Pedidos</h3>
+                  <p class="profile-card__value" id="ov-pedidos">0</p>
+                  <p class="profile-card__text" id="ov-pedidos-text">Nenhum pedido registrado ainda.</p>
+                  <a href="#meus-pedidos" class="btn btn--primary" data-section="pedidos">Ver pedidos</a>
+                </article>
+
+                <article class="profile-card">
+                  <h3 class="profile-card__title">Favoritos</h3>
+                  <p class="profile-card__value" id="ov-favoritos">0</p>
+                  <p class="profile-card__text">Produtos salvos para ver depois.</p>
+                  <a href="#favoritos" class="btn btn--primary" data-section="favoritos">Ver favoritos</a>
+                </article>
+
+                <article class="profile-card">
+                  <h3 class="profile-card__title">Endereços</h3>
+                  <p class="profile-card__value" id="ov-enderecos">0</p>
+                  <p class="profile-card__text">Endereços para agilizar suas entregas.</p>
+                  <a href="#enderecos" class="btn btn--primary" data-section="enderecos">Gerenciar</a>
+                </article>
+
+                <article class="profile-card">
+                  <h3 class="profile-card__title">Dados da conta</h3>
+                  <p class="profile-card__value" id="ov-conta">Não preenchidos</p>
+                  <p class="profile-card__text" id="ov-conta-text">Preencha seus dados para personalizar a experiência.</p>
+                  <a href="#meus-dados" class="btn btn--primary" data-section="dados">Atualizar</a>
+                </article>
+
+              </div>
+            </section>
+
+            <!-- Meus dados -->
+            <section class="profile-panel" id="meus-dados" data-panel="dados" aria-labelledby="dados-title" hidden>
+              <h2 class="profile-panel__title" id="dados-title" tabindex="-1">Meus dados</h2>
+
+              <form class="contact-form" id="profile-form" novalidate>
+                <fieldset class="filters__group">
+                  <legend class="filters__legend">Dados pessoais (não sensíveis)</legend>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="pf-name">Nome completo</label>
+                    <input
+                      class="contact-form__input"
+                      type="text"
+                      id="pf-name"
+                      name="name"
+                      data-validate="text"
+                      autocomplete="name"
+                      required
+                      placeholder="Seu nome"
+                      aria-describedby="pf-name-error"
+                    >
+                    <p class="contact-form__error" id="pf-name-error">Informe seu nome (mínimo 2 letras).</p>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="pf-email">E-mail</label>
+                    <input
+                      class="contact-form__input"
+                      type="email"
+                      id="pf-email"
+                      name="email"
+                      data-validate="email"
+                      autocomplete="email"
+                      required
+                      placeholder="voce@exemplo.com"
+                      aria-describedby="pf-email-error"
+                    >
+                    <p class="contact-form__error" id="pf-email-error">Informe um e-mail válido.</p>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="pf-phone">Telefone (WhatsApp)</label>
+                    <input
+                      class="contact-form__input"
+                      type="tel"
+                      id="pf-phone"
+                      name="phone"
+                      data-validate="phone"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      required
+                      placeholder="(11) 99999-9999"
+                      aria-describedby="pf-phone-error"
+                    >
+                    <p class="contact-form__error" id="pf-phone-error">Informe um telefone com DDD (mínimo 8 dígitos).</p>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="pf-cpf">CPF</label>
+                    <input
+                      class="contact-form__input"
+                      type="text"
+                      id="pf-cpf"
+                      name="cpf"
+                      data-validate="cpf"
+                      autocomplete="off"
+                      inputmode="numeric"
+                      maxlength="14"
+                      placeholder="000.000.000-00"
+                      aria-describedby="pf-cpf-error"
+                    >
+                    <p class="contact-form__error" id="pf-cpf-error">Informe um CPF válido (formato 000.000.000-00).</p>
+                  </div>
+
+                  <div class="contact-form__actions">
+                    <button type="submit" class="btn btn--primary" id="pf-submit">Salvar alterações</button>
+                  </div>
+
+                </fieldset>
+
+                <p class="alert contact-form__feedback" id="profile-feedback" role="status" aria-live="polite" hidden></p>
+              </form>
+            </section>
+
+            <!-- Meus pedidos -->
+            <section class="profile-panel" id="meus-pedidos" data-panel="pedidos" aria-labelledby="pedidos-title" hidden>
+              <h2 class="profile-panel__title" id="pedidos-title" tabindex="-1">Meus pedidos</h2>
+
+              <div class="cart-empty" id="pedidos-auth-required" hidden>
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <h3 class="cart-empty__title">Entre na sua conta para ver seus pedidos.</h3>
+                <p class="cart-empty__text">
+                  Seus pedidos simulados ficam vinculados ao usuário da sessão.
+                  Faça login para visualizar o histórico.
+                </p>
+                <div class="cart-empty__actions">
+                  <a href="login.html" class="btn btn--primary">Entrar na minha conta</a>
+                </div>
+              </div>
+
+              <div class="cart-empty" id="pedidos-empty" hidden>
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <h3 class="cart-empty__title">Você ainda não possui pedidos.</h3>
+                <p class="cart-empty__text">
+                  Quando você finalizar uma compra simulada no checkout, os
+                  detalhes do pedido aparecerão aqui.
+                </p>
+                <div class="cart-empty__actions">
+                  <a href="produtos.html" class="btn btn--primary">Continuar comprando</a>
+                </div>
+              </div>
+
+              <div class="cart-empty" id="pedidos-loading" hidden>
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <h3 class="cart-empty__title" role="status">Carregando seus pedidos…</h3>
+                <p class="cart-empty__text">
+                  Aguarde um instante enquanto buscamos seu histórico.
+                </p>
+              </div>
+
+              <div class="cart-empty" id="pedidos-error" hidden>
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <h3 class="cart-empty__title">Não foi possível carregar seus pedidos.</h3>
+                <p class="cart-empty__text" id="pedidos-error-text">Tente novamente em instantes.</p>
+                <div class="cart-empty__actions">
+                  <button type="button" class="btn btn--primary" id="pedidos-retry">Tentar novamente</button>
+                </div>
+              </div>
+
+              <ul class="profile-orders" id="pedidos-list" hidden></ul>
+            </section>
+
+            <!-- Endereços -->
+            <section class="profile-panel" id="enderecos" data-panel="enderecos" aria-labelledby="enderecos-title" hidden>
+              <div class="profile-panel__head">
+                <h2 class="profile-panel__title" id="enderecos-title" tabindex="-1">Endereços</h2>
+                <button type="button" class="btn btn--outline" id="btn-add-address">Adicionar endereço</button>
+              </div>
+
+              <ul class="profile-addresses" id="addresses-list"></ul>
+
+              <div class="cart-empty" id="addresses-empty">
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <h3 class="cart-empty__title">Nenhum endereço cadastrado.</h3>
+                <p class="cart-empty__text">
+                  Cadastre um endereço para agilizar suas próximas compras.
+                </p>
+                <div class="cart-empty__actions">
+                  <button type="button" class="btn btn--primary" id="btn-add-address-empty">Adicionar endereço</button>
+                </div>
+              </div>
+
+              <form class="contact-form profile-address-form" id="address-form" novalidate hidden>
+                <fieldset class="filters__group">
+                  <legend class="filters__legend" id="address-form-title">Novo endereço</legend>
+
+                  <div class="address-grid">
+
+                    <div class="contact-form__field address-grid__full">
+                      <label class="contact-form__label" for="addr-label">Apelido (opcional)</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-label"
+                        name="label"
+                        data-validate="label"
+                        autocomplete="off"
+                        placeholder="Ex.: Minha casa"
+                        aria-describedby="addr-label-error"
+                      >
+                      <p class="contact-form__error" id="addr-label-error"></p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-cep">CEP</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-cep"
+                        name="cep"
+                        data-validate="cep"
+                        autocomplete="postal-code"
+                        inputmode="numeric"
+                        required
+                        placeholder="00000-000"
+                        aria-describedby="addr-cep-error"
+                      >
+                      <p class="contact-form__error" id="addr-cep-error">Informe um CEP válido com 8 dígitos.</p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-number">Número</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-number"
+                        name="number"
+                        data-validate="number"
+                        autocomplete="off"
+                        required
+                        placeholder="123"
+                        aria-describedby="addr-number-error"
+                      >
+                      <p class="contact-form__error" id="addr-number-error">Informe o número.</p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-street">Rua</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-street"
+                        name="street"
+                        data-validate="street"
+                        autocomplete="street-address"
+                        required
+                        placeholder="Nome da rua/avenida"
+                        aria-describedby="addr-street-error"
+                      >
+                      <p class="contact-form__error" id="addr-street-error">Informe a rua.</p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-complement">Complemento (opcional)</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-complement"
+                        name="complement"
+                        data-validate="complement"
+                        autocomplete="off"
+                        placeholder="Apto, bloco..."
+                        aria-describedby="addr-complement-error"
+                      >
+                      <p class="contact-form__error" id="addr-complement-error"></p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-neighborhood">Bairro</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-neighborhood"
+                        name="neighborhood"
+                        data-validate="neighborhood"
+                        autocomplete="address-level2"
+                        required
+                        placeholder="Seu bairro"
+                        aria-describedby="addr-neighborhood-error"
+                      >
+                      <p class="contact-form__error" id="addr-neighborhood-error">Informe o bairro.</p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-state">Estado (UF)</label>
+                      <select
+                        class="contact-form__select"
+                        id="addr-state"
+                        name="state"
+                        data-validate="state"
+                        autocomplete="address-level1"
+                        required
+                        aria-describedby="addr-state-error"
+                      >
+                        <option value="">Selecione</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                      </select>
+                      <p class="contact-form__error" id="addr-state-error">Selecione o estado (UF).</p>
+                    </div>
+
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="addr-city">Cidade</label>
+                      <input
+                        class="contact-form__input"
+                        type="text"
+                        id="addr-city"
+                        name="city"
+                        data-validate="city"
+                        autocomplete="address-level2"
+                        required
+                        placeholder="Sua cidade"
+                        aria-describedby="addr-city-error"
+                      >
+                      <p class="contact-form__error" id="addr-city-error">Informe a cidade.</p>
+                    </div>
+
+                  </div>
+
+                  <div class="contact-form__actions">
+                    <button type="submit" class="btn btn--primary" id="addr-submit">Salvar endereço</button>
+                    <button type="button" class="btn btn--ghost" id="addr-cancel">Cancelar</button>
+                  </div>
+
+                </fieldset>
+
+                <p class="alert contact-form__feedback" id="address-feedback" role="status" aria-live="polite" hidden></p>
+              </form>
+            </section>
+
+            <!-- Favoritos -->
+            <section class="profile-panel" id="favoritos" data-panel="favoritos" aria-labelledby="favoritos-title" hidden>
+              <h2 class="profile-panel__title" id="favoritos-title" tabindex="-1">Favoritos</h2>
+
+              <div class="cart-empty" id="favorites-empty" hidden>
+                <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <h3 class="cart-empty__title">Você ainda não adicionou produtos aos favoritos.</h3>
+                <p class="cart-empty__text">
+                  Toque no ícone de coração em qualquer produto para salvá-lo aqui.
+                </p>
+                <div class="cart-empty__actions">
+                  <a href="produtos.html" class="btn btn--primary">Explorar produtos</a>
+                </div>
+              </div>
+
+              <ul class="profile-fav" id="favorites-list"></ul>
+            </section>
+
+            <!-- Configurações -->
+            <section class="profile-panel" id="configuracoes" data-panel="config" aria-labelledby="config-title" hidden>
+              <h2 class="profile-panel__title" id="config-title" tabindex="-1">Configurações</h2>
+
+              <form class="contact-form" id="prefs-form" novalidate>
+                <fieldset class="filters__group">
+                  <legend class="filters__legend">Preferências de comunicação</legend>
+
+                  <div class="profile-prefs">
+
+                    <div class="profile-pref">
+                      <label class="profile-pref__label" for="pref-news">
+                        <span>Novidades e lançamentos</span>
+                        <small>Receba avisos sobre novos produtos e tecnologias.</small>
+                      </label>
+                      <input class="profile-pref__input" type="checkbox" id="pref-news" name="news">
+                    </div>
+
+                    <div class="profile-pref">
+                      <label class="profile-pref__label" for="pref-offers">
+                        <span>Ofertas e promoções</span>
+                        <small>Receba cupons e preços especiais com antecedência.</small>
+                      </label>
+                      <input class="profile-pref__input" type="checkbox" id="pref-offers" name="offers">
+                    </div>
+
+                    <div class="profile-pref">
+                      <label class="profile-pref__label" for="pref-contact">
+                        <span>Comunicação da loja</span>
+                        <small>Receba novidades gerais sobre a Nexus Tech.</small>
+                      </label>
+                      <input class="profile-pref__input" type="checkbox" id="pref-contact" name="contact">
+                    </div>
+
+                  </div>
+                </fieldset>
+
+                <p class="contact-form__note">
+                  As preferências são salvas apenas neste navegador (localStorage).
+                </p>
+              </form>
+
+              <p class="alert contact-form__feedback" id="prefs-feedback" role="status" aria-live="polite" hidden></p>
+            </section>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand-col">
+          <p class="site-footer__brand">NEXUS<span class="site-footer__brand-accent">TECH</span></p>
+          <p class="site-footer__tagline">Tecnologia que conecta você ao futuro.</p>
+        </div>
+
+        <nav aria-label="Loja">
+          <p class="site-footer__heading">Loja</p>
+          <ul class="site-footer__list">
+            <li><a href="produtos.html" class="site-footer__link">Produtos</a></li>
+            <li><a href="../index.html#ofertas" class="site-footer__link">Ofertas</a></li>
+            <li><a href="../index.html#bestsellers-title" class="site-footer__link">Mais vendidos</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Atendimento">
+          <p class="site-footer__heading">Atendimento</p>
+          <ul class="site-footer__list">
+            <li><a href="ajuda.html" class="site-footer__link">Central de ajuda</a></li>
+            <li><a href="contato.html" class="site-footer__link">Contato</a></li>
+            <li><a href="faq.html" class="site-footer__link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Institucional">
+          <p class="site-footer__heading">Institucional</p>
+          <ul class="site-footer__list">
+            <li><a href="sobre.html" class="site-footer__link">Sobre nós</a></li>
+            <li><a href="privacidade.html" class="site-footer__link">Privacidade</a></li>
+            <li><a href="termos.html" class="site-footer__link">Termos</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__heading">Redes sociais</p>
+          <div class="site-footer__social">
+            <a href="#" class="site-footer__social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="site-footer__social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="site-footer__social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__payments" aria-label="Formas de pagamento aceitas">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">MASTERCARD</span>
+          <span class="pay-badge">PIX</span>
+          <span class="pay-badge">BOLETO</span>
+        </div>
+        <p class="site-footer__copy">© <span id="footer-year">2026</span> Nexus Tech. Todos os direitos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/modules/header.js"></script>
+  <script type="module" src="../assets/js/modules/profile/profile.js"></script>
+</body>
+</html>

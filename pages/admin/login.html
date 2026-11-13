@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Login do Admin — Nexus Tech</title>
+  <meta name="description" content="Área restrita dos administradores da Nexus Tech. Autenticação real via API.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body data-page="admin-login">
+
+  <main class="admin-auth" id="admin-auth">
+    <div class="admin-auth__card">
+
+      <p class="admin-auth__brand">NEXUS<span class="admin-auth__brand-accent">TECH</span></p>
+      <h1 class="admin-auth__title">Painel administrativo</h1>
+      <p class="admin-auth__lead">Acesse com suas credenciais de administrador para gerenciar a loja.</p>
+
+      <form class="admin-auth__form" id="admin-login-form" novalidate>
+
+        <p class="admin-auth__alert" id="admin-login-alert" role="status" aria-live="polite" data-show="false"></p>
+
+        <div class="admin-auth__field">
+          <label class="admin-auth__label" for="admin-login-email">E-mail</label>
+          <input
+            class="admin-auth__input"
+            type="email"
+            id="admin-login-email"
+            name="email"
+            data-validate="email"
+            autocomplete="email"
+            placeholder="admin@nexustech.com"
+            aria-describedby="admin-login-email-err"
+            required
+          >
+          <p class="admin-auth__error" id="admin-login-email-err"></p>
+        </div>
+
+        <div class="admin-auth__field">
+          <label class="admin-auth__label" for="admin-login-password">Senha</label>
+          <input
+            class="admin-auth__input"
+            type="password"
+            id="admin-login-password"
+            name="password"
+            data-validate="password"
+            autocomplete="current-password"
+            placeholder="Sua senha"
+            aria-describedby="admin-login-password-err"
+            required
+          >
+          <p class="admin-auth__error" id="admin-login-password-err"></p>
+        </div>
+
+        <button type="submit" class="admin-auth__btn" id="admin-login-submit">Entrar</button>
+
+      </form>
+
+      <p class="admin-auth__note">
+        <a class="admin-auth__link" href="../../index.html">Voltar para a loja</a>
+      </p>
+
+    </div>
+  </main>
+
+  <script type="module" src="../../assets/js/modules/admin/auth-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Finalizar compra — Nexus Tech</title>
+  <meta name="description" content="Finalize sua compra na Nexus Tech: seus dados, endereço de entrega, forma de pagamento e resumo do pedido em uma página.">
+  <meta property="og:title" content="Finalizar compra — Nexus Tech">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Finalize sua compra na Nexus Tech.">
+
+  <!-- Favicon (placeholder SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="checkout">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <a href="../index.html" class="site-header__logo" aria-label="Nexus Tech — Página inicial">
+        <span class="site-header__logo-mark">NEXUS</span>
+        <span class="site-header__logo-accent">TECH</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Home</a></li>
+          <li><a href="produtos.html" class="main-nav__link">Produtos</a></li>
+          <li><a href="../index.html#ofertas" class="main-nav__link">Ofertas</a></li>
+          <li><a href="contato.html" class="main-nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <form class="site-header__search search" role="search" aria-label="Buscar produtos">
+        <span class="search__icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <label class="sr-only" for="search-header">Buscar produtos, marcas e categorias</label>
+        <input
+          type="search"
+          id="search-header"
+          name="q"
+          class="search__input"
+          placeholder="Buscar produtos, marcas e categorias..."
+          autocomplete="off"
+        >
+        <button type="submit" class="search__btn">Buscar</button>
+      </form>
+
+      <div class="site-header__actions">
+
+        <button type="button" class="icon-btn" aria-label="Favoritos">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="icon-btn__count" id="favorites-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Favoritos</span>
+        </button>
+
+        <button type="button" class="icon-btn" aria-label="Carrinho de compras">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="icon-btn__count" id="cart-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Carrinho</span>
+        </button>
+
+        <a href="perfil.html" class="icon-btn icon-btn__label--account" aria-label="Minha conta">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="icon-btn__label">Minha conta</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL — CHECKOUT
+  ============================================================= -->
+  <main>
+    <section class="checkout" id="checkout-app" aria-labelledby="checkout-title">
+      <div class="container">
+
+        <div class="checkout__header">
+
+          <nav class="breadcrumb" aria-label="Trilha de navegação">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="../index.html" class="breadcrumb__link">Home</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <a href="carrinho.html" class="breadcrumb__link">Carrinho</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__current" aria-current="page">Checkout</span>
+              </li>
+            </ol>
+          </nav>
+
+          <h1 id="checkout-title" class="checkout__title" tabindex="-1">Finalizar compra</h1>
+
+          <p class="checkout__note">
+            Revise os itens e preencha seus dados para concluir a simulação do pedido.
+          </p>
+
+        </div>
+
+        <!-- Mensagens de estado para leitores de tela -->
+        <p id="checkout-status" class="checkout__status" role="status" aria-live="polite"></p>
+
+        <div id="checkout-content">
+
+          <!-- ================= FORMULÁRIO + RESUMO ================= -->
+          <div class="checkout-layout" id="checkout-layout">
+
+            <form class="checkout-form" id="checkout-form" novalidate>
+
+              <!-- 1. IDENTIFICAÇÃO -->
+              <fieldset class="checkout-form__fieldset">
+                <legend class="checkout-form__legend">Seus dados</legend>
+                <div class="checkout-form__grid">
+
+                  <div class="checkout-form__field checkout-form__field--full">
+                    <label class="checkout-form__label" for="co-name">Nome completo</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-name"
+                      name="name"
+                      data-validate="name"
+                      autocomplete="name"
+                      required
+                      placeholder="Seu nome completo"
+                      aria-describedby="co-name-err"
+                    >
+                    <p class="checkout-form__error" id="co-name-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-email">E-mail</label>
+                    <input
+                      class="checkout-form__input"
+                      type="email"
+                      id="co-email"
+                      name="email"
+                      data-validate="email"
+                      autocomplete="email"
+                      required
+                      placeholder="voce@exemplo.com"
+                      aria-describedby="co-email-err"
+                    >
+                    <p class="checkout-form__error" id="co-email-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-phone">Telefone</label>
+                    <input
+                      class="checkout-form__input"
+                      type="tel"
+                      id="co-phone"
+                      name="phone"
+                      data-validate="phone"
+                      autocomplete="tel"
+                      required
+                      placeholder="(11) 99999-9999"
+                      aria-describedby="co-phone-err"
+                    >
+                    <p class="checkout-form__error" id="co-phone-err"></p>
+                  </div>
+
+                </div>
+              </fieldset>
+
+              <!-- 2. ENDEREÇO -->
+              <fieldset class="checkout-form__fieldset">
+                <legend class="checkout-form__legend">Endereço de entrega</legend>
+                <div class="checkout-form__grid">
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-cep">CEP</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-cep"
+                      name="cep"
+                      data-validate="cep"
+                      autocomplete="postal-code"
+                      inputmode="numeric"
+                      required
+                      placeholder="00000-000"
+                      aria-describedby="co-cep-err"
+                    >
+                    <p class="checkout-form__error" id="co-cep-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-complement">Complemento
+                      <span class="checkout-form__optional">(opcional)</span>
+                    </label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-complement"
+                      name="complement"
+                      data-validate="complement"
+                      placeholder="Apto, bloco..."
+                      aria-describedby="co-complement-err"
+                    >
+                    <p class="checkout-form__error" id="co-complement-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field checkout-form__field--full">
+                    <label class="checkout-form__label" for="co-street">Rua</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-street"
+                      name="street"
+                      data-validate="street"
+                      autocomplete="address-line1"
+                      required
+                      placeholder="Rua, avenida ou logradouro"
+                      aria-describedby="co-street-err"
+                    >
+                    <p class="checkout-form__error" id="co-street-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-number">Número</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-number"
+                      name="number"
+                      data-validate="number"
+                      autocomplete="address-line2"
+                      required
+                      placeholder="Número"
+                      aria-describedby="co-number-err"
+                    >
+                    <p class="checkout-form__error" id="co-number-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-neighborhood">Bairro</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-neighborhood"
+                      name="neighborhood"
+                      data-validate="neighborhood"
+                      autocomplete="address-level3"
+                      required
+                      placeholder="Bairro"
+                      aria-describedby="co-neighborhood-err"
+                    >
+                    <p class="checkout-form__error" id="co-neighborhood-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-city">Cidade</label>
+                    <input
+                      class="checkout-form__input"
+                      type="text"
+                      id="co-city"
+                      name="city"
+                      data-validate="city"
+                      autocomplete="address-level2"
+                      required
+                      placeholder="Cidade"
+                      aria-describedby="co-city-err"
+                    >
+                    <p class="checkout-form__error" id="co-city-err"></p>
+                  </div>
+
+                  <div class="checkout-form__field">
+                    <label class="checkout-form__label" for="co-state">Estado</label>
+                    <select class="checkout-form__select" id="co-state" name="state" data-validate="state" autocomplete="address-level1" required aria-describedby="co-state-err">
+                      <option value="">Selecione a UF</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BA</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MT">MT</option>
+                      <option value="MS">MS</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
+                    </select>
+                    <p class="checkout-form__error" id="co-state-err"></p>
+                  </div>
+
+                </div>
+              </fieldset>
+
+              <!-- 3. ENTREGA -->
+              <fieldset class="checkout-form__fieldset">
+                <legend class="checkout-form__legend">Entrega</legend>
+                <div class="checkout-form__radio-grid">
+
+                  <label class="checkout-opt" id="opt-delivery-standard" for="co-delivery-standard">
+                    <input class="checkout-opt__input" id="co-delivery-standard" type="radio" name="co-delivery" value="standard" checked>
+                    <span class="checkout-opt__body">
+                      <span class="checkout-opt__name">Entrega padrão</span>
+                      <span class="checkout-opt__meta">5–8 dias úteis</span>
+                      <span class="checkout-opt__price" id="delivery-standard-price">R$ 29,90</span>
+                    </span>
+                  </label>
+
+                  <label class="checkout-opt" id="opt-delivery-express" for="co-delivery-express">
+                    <input class="checkout-opt__input" id="co-delivery-express" type="radio" name="co-delivery" value="express">
+                    <span class="checkout-opt__body">
+                      <span class="checkout-opt__name">Entrega expressa</span>
+                      <span class="checkout-opt__meta">2–4 dias úteis</span>
+                      <span class="checkout-opt__price" id="delivery-express-price">R$ 49,90</span>
+                    </span>
+                  </label>
+
+                </div>
+              </fieldset>
+
+              <!-- 4. PAGAMENTO -->
+              <fieldset class="checkout-form__fieldset">
+                <legend class="checkout-form__legend">Forma de pagamento</legend>
+                <div class="checkout-form__radio-grid">
+
+                  <label class="checkout-opt" id="opt-payment-credit" for="co-payment-credit">
+                    <input class="checkout-opt__input" id="co-payment-credit" type="radio" name="co-payment" value="credit" checked>
+                    <span class="checkout-opt__body">
+                      <span class="checkout-opt__name">Cartão de crédito</span>
+                      <span class="checkout-opt__meta">À vista ou parcelado</span>
+                    </span>
+                  </label>
+
+                  <label class="checkout-opt" id="opt-payment-pix" for="co-payment-pix">
+                    <input class="checkout-opt__input" id="co-payment-pix" type="radio" name="co-payment" value="pix">
+                    <span class="checkout-opt__body">
+                      <span class="checkout-opt__name">PIX</span>
+                      <span class="checkout-opt__meta">Pagamento instantâneo</span>
+                    </span>
+                  </label>
+
+                  <label class="checkout-opt" id="opt-payment-boleto" for="co-payment-boleto">
+                    <input class="checkout-opt__input" id="co-payment-boleto" type="radio" name="co-payment" value="boleto">
+                    <span class="checkout-opt__body">
+                      <span class="checkout-opt__name">Boleto bancário</span>
+                      <span class="checkout-opt__meta">Vencimento em até 3 dias úteis</span>
+                    </span>
+                  </label>
+
+                </div>
+
+                <!-- Cartão de crédito (dados apenas em memória — simulação) -->
+                <div class="checkout-payment__panel" id="co-credit-panel">
+                  <div class="checkout-form__grid">
+
+                    <div class="checkout-form__field checkout-form__field--full">
+                      <label class="checkout-form__label" for="co-card-number">Número do cartão</label>
+                      <input
+                        class="checkout-form__input"
+                        type="text"
+                        id="co-card-number"
+                        name="cardNumber"
+                        data-validate="cardNumber"
+                        autocomplete="cc-number"
+                        inputmode="numeric"
+                        maxlength="19"
+                        placeholder="0000 0000 0000 0000"
+                        aria-describedby="co-card-number-err"
+                      >
+                      <p class="checkout-form__error" id="co-card-number-err"></p>
+                    </div>
+
+                    <div class="checkout-form__field checkout-form__field--full">
+                      <label class="checkout-form__label" for="co-card-name">Nome no cartão</label>
+                      <input
+                        class="checkout-form__input"
+                        type="text"
+                        id="co-card-name"
+                        name="cardName"
+                        data-validate="cardName"
+                        autocomplete="cc-name"
+                        placeholder="Como está impresso no cartão"
+                        aria-describedby="co-card-name-err"
+                      >
+                      <p class="checkout-form__error" id="co-card-name-err"></p>
+                    </div>
+
+                    <div class="checkout-form__field">
+                      <label class="checkout-form__label" for="co-card-expiry">Validade</label>
+                      <input
+                        class="checkout-form__input"
+                        type="text"
+                        id="co-card-expiry"
+                        name="cardExpiry"
+                        data-validate="cardExpiry"
+                        autocomplete="cc-exp"
+                        inputmode="numeric"
+                        maxlength="5"
+                        placeholder="MM/AA"
+                        aria-describedby="co-card-expiry-err"
+                      >
+                      <p class="checkout-form__error" id="co-card-expiry-err"></p>
+                    </div>
+
+                    <div class="checkout-form__field">
+                      <label class="checkout-form__label" for="co-card-cvv">CVV</label>
+                      <input
+                        class="checkout-form__input"
+                        type="text"
+                        id="co-card-cvv"
+                        name="cardCvv"
+                        data-validate="cardCvv"
+                        autocomplete="cc-csc"
+                        inputmode="numeric"
+                        maxlength="4"
+                        placeholder="123"
+                        aria-describedby="co-card-cvv-err"
+                      >
+                      <p class="checkout-form__error" id="co-card-cvv-err"></p>
+                    </div>
+
+                    <div class="checkout-form__field checkout-form__field--full">
+                      <label class="checkout-form__label" for="co-card-installments">Parcelas</label>
+                      <select class="checkout-form__select" id="co-card-installments" name="installments" data-validate="installments" aria-describedby="co-card-installments-err">
+                      </select>
+                      <p class="checkout-form__error" id="co-card-installments-err"></p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- PIX (simulado) -->
+                <div class="checkout-payment__note" id="co-pix-panel" hidden>
+                  <strong>Pagamento via PIX</strong>
+                  <p>O código e o QR Code do PIX serão exibidos após a finalização do pedido — tudo simulado, nenhum pagamento real é processado.</p>
+                </div>
+
+                <!-- Boleto (simulado) -->
+                <div class="checkout-payment__note" id="co-boleto-panel" hidden>
+                  <strong>Boleto bancário</strong>
+                  <p>O boleto com vencimento em até 3 dias úteis será gerado e enviado ao e-mail cadastrado na confirmação — simulação, nenhum pagamento real é processado.</p>
+                </div>
+
+              </fieldset>
+
+              <div class="checkout-form__actions">
+                <button type="submit" class="btn btn--primary btn--lg" id="co-submit">Finalizar pedido</button>
+                <p class="checkout-form__note">
+                  Simulação de compra — nenhum dado é enviado, processado ou persistido em servidores.
+                </p>
+              </div>
+
+              <!-- Autenticação obrigatória (v2.3): sem sessão válida a compra
+                   não é finalizada; o carrinho é preservado. -->
+              <div class="alert alert--warning checkout-auth" id="checkout-auth-required" role="status" hidden>
+                <strong>Para finalizar o pedido, entre na sua conta.</strong>
+                <p>
+                  Seu carrinho foi preservado. Após entrar, você poderá voltar e concluir a compra.
+                </p>
+                <div class="checkout-auth__actions">
+                  <a class="btn btn--primary" href="login.html?next=checkout.html">Entrar na minha conta</a>
+                  <a class="btn btn--ghost" href="carrinho.html">Voltar ao carrinho</a>
+                </div>
+              </div>
+
+            </form>
+
+            <!-- Resumo do pedido -->
+            <aside class="checkout-summary" aria-label="Resumo do pedido">
+              <h2 class="checkout-summary__title">Resumo do pedido</h2>
+              <ul class="checkout-summary__items" id="summary-items"></ul>
+              <dl class="checkout-summary__rows">
+                <div class="checkout-summary__row">
+                  <dt>Subtotal</dt>
+                  <dd id="summary-subtotal">—</dd>
+                </div>
+                <div class="checkout-summary__row">
+                  <dt>Frete</dt>
+                  <dd class="checkout-summary__freight" id="summary-freight">—</dd>
+                </div>
+                <div class="checkout-summary__row checkout-summary__row--total">
+                  <dt>Total</dt>
+                  <dd class="checkout-summary__total-value" id="summary-total">—</dd>
+                </div>
+              </dl>
+            </aside>
+
+          </div>
+
+          <!-- ================= CARRINHO VAZIO ================= -->
+          <div class="cart-empty" id="checkout-empty" hidden>
+            <svg class="cart-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.29 2.29c-.63.63-.19 1.71.7 1.71H17M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+            </svg>
+            <p class="cart-empty__title">Seu carrinho está vazio.</p>
+            <p class="cart-empty__text">Adicione produtos ao carrinho antes de finalizar seu pedido.</p>
+            <div class="cart-empty__actions">
+              <a href="produtos.html" class="btn btn--primary">Voltar para produtos</a>
+              <a href="carrinho.html" class="btn btn--ghost">Voltar ao carrinho</a>
+            </div>
+          </div>
+
+          <!-- ================= SUCESSO (confirmação simulada) ================= -->
+          <div class="checkout-success" id="checkout-success" hidden>
+            <svg class="checkout-success__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 12.5l2.5 2.5L16 9"></path>
+            </svg>
+            <h2 class="checkout-success__title" id="success-title" tabindex="-1">Pedido realizado com sucesso!</h2>
+            <p class="checkout-success__order">Pedido #<span id="success-order">NT-000001</span></p>
+            <p class="checkout-success__meta" id="success-meta"></p>
+            <div class="checkout-success__actions">
+              <a href="produtos.html" class="btn btn--primary">Continuar comprando</a>
+              <a href="perfil.html" class="btn btn--outline">Ver minha conta</a>
+              <a href="carrinho.html" class="btn btn--outline">Voltar ao carrinho</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand-col">
+          <p class="site-footer__brand">NEXUS<span class="site-footer__brand-accent">TECH</span></p>
+          <p class="site-footer__tagline">Tecnologia que conecta você ao futuro.</p>
+        </div>
+
+        <nav aria-label="Loja">
+          <p class="site-footer__heading">Loja</p>
+          <ul class="site-footer__list">
+            <li><a href="produtos.html" class="site-footer__link">Produtos</a></li>
+            <li><a href="../index.html#ofertas" class="site-footer__link">Ofertas</a></li>
+            <li><a href="../index.html#bestsellers-title" class="site-footer__link">Mais vendidos</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Atendimento">
+          <p class="site-footer__heading">Atendimento</p>
+          <ul class="site-footer__list">
+            <li><a href="ajuda.html" class="site-footer__link">Central de ajuda</a></li>
+            <li><a href="contato.html" class="site-footer__link">Contato</a></li>
+            <li><a href="faq.html" class="site-footer__link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Institucional">
+          <p class="site-footer__heading">Institucional</p>
+          <ul class="site-footer__list">
+            <li><a href="sobre.html" class="site-footer__link">Sobre nós</a></li>
+            <li><a href="privacidade.html" class="site-footer__link">Privacidade</a></li>
+            <li><a href="termos.html" class="site-footer__link">Termos</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__heading">Redes sociais</p>
+          <div class="site-footer__social">
+            <a href="#" class="site-footer__social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="site-footer__social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="site-footer__social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__payments" aria-label="Formas de pagamento aceitas">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">MASTERCARD</span>
+          <span class="pay-badge">PIX</span>
+          <span class="pay-badge">BOLETO</span>
+        </div>
+        <p class="site-footer__copy">© <span id="footer-year">2026</span> Nexus Tech. Todos os direitos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/modules/header.js"></script>
+  <script type="module" src="../assets/js/modules/checkout/checkout.js"></script>
+</body>
+</html>

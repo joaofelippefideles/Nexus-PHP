@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Marcas — Nexus Tech</title>
+  <meta name="description" content="Gestão de marcas do catálogo Nexus Tech via API real.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body data-page="admin-brands">
+
+  <div class="admin-shell">
+
+    <header class="admin-topbar">
+      <a href="index.html" class="admin-topbar__brand" aria-label="Nexus Tech — Painel">
+        NEXUS<span class="admin-topbar__brand-accent">TECH</span>
+        <span class="admin-topbar__brand-accent"> Admin</span>
+      </a>
+
+      <nav class="admin-nav" aria-label="Navegação do painel">
+        <a href="index.html" class="admin-nav__link">Dashboard</a>
+        <a href="products.html" class="admin-nav__link">Produtos</a>
+        <a href="brands.html" class="admin-nav__link is-active" aria-current="page">Marcas</a>
+        <a href="categories.html" class="admin-nav__link">Categorias</a>
+      </nav>
+
+      <div class="admin-topbar__session">
+        <span class="admin-topbar__who">
+          <span class="admin-topbar__name" id="admin-topbar-name"></span>
+          <span class="admin-topbar__email" id="admin-topbar-email"></span>
+        </span>
+        <button type="button" class="admin-topbar__logout" id="admin-logout">Sair</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-pagehead">
+        <div>
+          <h1 class="admin-main__title">Marcas</h1>
+          <p class="admin-main__lead">
+            Gerencie as marcas da Nexus Tech — dados consumidos da API real.
+          </p>
+        </div>
+        <a href="brand-form.html" class="admin-btn admin-btn--primary">Nova marca</a>
+      </div>
+
+      <div class="admin-alert admin-alert--success" id="brands-alert" hidden role="status"></div>
+
+      <section class="admin-card">
+
+        <div class="admin-state" id="brands-loading" hidden>
+          <span class="admin-loading__spinner" aria-hidden="true"></span>
+          Carregando marcas...
+        </div>
+
+        <div class="admin-state admin-state--empty" id="brands-empty" hidden>
+          Nenhuma marca cadastrada.
+        </div>
+
+        <div class="admin-state admin-state--error" id="brands-error" hidden>
+          <p id="brands-error-msg"></p>
+          <button type="button" id="brands-retry" class="admin-btn admin-btn--secondary">
+            Tentar novamente
+          </button>
+        </div>
+
+        <div class="admin-table-wrap" id="brands-list" hidden>
+          <table class="admin-table">
+            <caption class="visually-hidden">Marcas do catálogo</caption>
+            <thead>
+              <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">Slug</th>
+                <th scope="col" class="cell-num">Produtos</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="brands-tbody"></tbody>
+          </table>
+        </div>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script type="module" src="../../assets/js/modules/admin/shell.js"></script>
+  <script type="module" src="../../assets/js/modules/admin/brands.js"></script>
+</body>
+</html>

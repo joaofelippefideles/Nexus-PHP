@@ -1,0 +1,993 @@
+
+<!DOCTYPE html>
+<!--
+  DOCTYPE:
+  Informa ao navegador que este documento utiliza HTML5.
+-->
+
+<html lang="pt-BR">
+<!--
+  lang="pt-BR":
+  Define o idioma principal da página como português brasileiro.
+-->
+
+<head>
+
+  <!-- Define a codificação de caracteres.
+       UTF-8 permite utilizar acentos e caracteres especiais. -->
+  <meta charset="UTF-8">
+
+  <!-- Configura a visualização em dispositivos móveis.
+       width=device-width: utiliza a largura da tela.
+       initial-scale=1.0: define o zoom inicial. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= SEO ================= -->
+
+  <!-- Título exibido na aba do navegador. -->
+  <title>Nexus Tech — Tecnologia que conecta você ao futuro</title>
+
+  <!-- Descrição da página para mecanismos de busca. -->
+  <meta name="description" content="Nexus Tech: loja online de tecnologia e informática. Notebooks, monitores, teclados, mouses, headsets, celulares, games e acessórios com os melhores preços.">
+
+  <!-- Palavras-chave relacionadas ao conteúdo do site. -->
+  <meta name="keywords" content="e-commerce, tecnologia, informática, notebooks, monitores, celulares, games, Nexus Tech">
+
+  <!-- Open Graph: informações utilizadas quando a página
+       é compartilhada em redes sociais e aplicativos. -->
+  <meta property="og:title" content="Nexus Tech — Tecnologia que conecta você ao futuro">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Loja online de tecnologia e informática. Produtos de alta qualidade com os melhores preços.">
+
+  <!-- FAVICON:
+       Ícone exibido na aba do navegador.
+       O SVG é inserido diretamente no atributo href. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+
+  <!-- CSS:
+       Conecta o HTML ao arquivo responsável pelo visual da página.
+       O CSS controla cores, fontes, tamanhos, espaçamentos e layout. -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<!-- BODY:
+     Contém tudo que será apresentado ao visitante.
+     data-page identifica esta página como Home. -->
+<body data-page="home">
+
+  <!-- ======================================================
+       HEADER — CABEÇALHO
+       Contém logo, navegação, pesquisa e ações do usuário.
+  ======================================================= -->
+
+  <header class="site-header" id="site-header">
+
+    <!-- container:
+         Classe geralmente utilizada para centralizar o conteúdo
+         e limitar sua largura máxima. -->
+    <div class="container site-header__inner">
+
+      <!-- BOTÃO HAMBÚRGUER:
+           Utilizado para abrir e fechar o menu em dispositivos móveis. -->
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+
+        <!-- Três barras que formam o ícone do menu. -->
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+
+      </button>
+
+      <!-- LOGO:
+           Link que direciona para a página inicial. -->
+      <a href="index.html" class="site-header__logo" aria-label="Nexus Tech — Página inicial">
+
+        <!-- Nome principal da marca. -->
+        <span class="site-header__logo-mark">NEXUS</span>
+
+        <!-- Complemento visual da marca. -->
+        <span class="site-header__logo-accent">TECH</span>
+
+      </a>
+
+      <!-- MENU DE NAVEGAÇÃO:
+           Permite acessar as principais áreas do site. -->
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+
+        <!-- Lista de links do menu. -->
+        <ul class="main-nav__list">
+
+          <!-- Página inicial. -->
+          <li>
+            <a href="index.html" class="main-nav__link is-active">Home</a>
+          </li>
+
+          <!-- Página de produtos. -->
+          <li>
+            <a href="pages/produtos.html" class="main-nav__link">Produtos</a>
+          </li>
+
+          <!-- Direciona para a seção de ofertas desta página. -->
+          <li>
+            <a href="#ofertas" class="main-nav__link">Ofertas</a>
+          </li>
+
+          <!-- Página de contato. -->
+          <li>
+            <a href="pages/contato.html" class="main-nav__link">Contato</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- BARRA DE PESQUISA:
+           Permite digitar o nome de um produto.
+           Nesta versão, a busca é apenas visual. -->
+      <form class="site-header__search search" role="search" aria-label="Buscar produtos">
+
+        <!-- Ícone de pesquisa em SVG. -->
+        <span class="search__icon" aria-hidden="true">
+
+          <svg class="icon" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
+          </svg>
+
+        </span>
+
+        <!-- Label acessível para o campo de pesquisa.
+             sr-only normalmente oculta visualmente o texto,
+             mas mantém sua leitura por leitores de tela. -->
+        <label class="sr-only" for="search-header">
+          Buscar produtos, marcas e categorias
+        </label>
+
+        <!-- Campo de pesquisa. -->
+        <input
+          type="search"
+          id="search-header"
+          name="q"
+          class="search__input"
+          placeholder="Buscar produtos, marcas e categorias..."
+          autocomplete="off"
+        >
+
+        <!-- Botão que envia a pesquisa. -->
+        <button type="submit" class="search__btn">Buscar</button>
+
+      </form>
+
+      <!-- AÇÕES DO USUÁRIO:
+           Favoritos, carrinho e acesso à conta. -->
+      <div class="site-header__actions">
+
+        <!-- BOTÃO DE FAVORITOS -->
+        <button type="button" class="icon-btn" aria-label="Favoritos">
+
+          <!-- Ícone de coração em SVG. -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+          </svg>
+
+          <!-- Quantidade de produtos favoritados.
+               O JavaScript pode atualizar esse número. -->
+          <span class="icon-btn__count" id="favorites-count" aria-hidden="true">0</span>
+
+          <span class="icon-btn__label">Favoritos</span>
+
+        </button>
+
+        <!-- BOTÃO DO CARRINHO -->
+        <button type="button" class="icon-btn" aria-label="Carrinho de compras">
+
+          <!-- Ícone de carrinho em SVG. -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+
+          </svg>
+
+          <!-- Quantidade de itens no carrinho. -->
+          <span class="icon-btn__count" id="cart-count" aria-hidden="true">0</span>
+
+          <span class="icon-btn__label">Carrinho</span>
+
+        </button>
+
+        <!-- ACESSO À CONTA:
+             Direciona o usuário para a página de perfil. -->
+        <a href="pages/perfil.html" class="icon-btn icon-btn__label--account" aria-label="Minha conta">
+
+          <!-- Ícone de usuário. -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+
+          </svg>
+
+          <span class="icon-btn__label">Minha conta</span>
+
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================
+       MAIN — CONTEÚDO PRINCIPAL
+       Reúne as principais seções da página inicial.
+  ======================================================= -->
+
+  <main>
+
+    <!-- HERO:
+         Banner principal da loja.
+         Apresenta a marca e direciona para os produtos. -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <div class="container hero__grid">
+
+        <!-- Conteúdo textual do banner. -->
+        <div class="hero__content">
+
+          <p class="hero__eyebrow">Nexus Tech</p>
+
+          <!-- Título principal da página (H1).
+               É o título de maior importância na hierarquia HTML. -->
+          <h1 id="hero-title" class="hero__title">
+
+            Tecnologia que conecta
+            <span class="hero__title-highlight">você ao futuro</span>
+
+          </h1>
+
+          <!-- Texto de apresentação da loja. -->
+          <p class="hero__subtitle">
+            Os melhores produtos para o seu setup, trabalho e entretenimento — com os melhores preços do mercado.
+          </p>
+
+          <!-- CTA:
+               Call To Action, ou chamada para ação.
+               Direciona o visitante para a página de produtos. -->
+          <a href="pages/produtos.html" class="btn btn--primary btn--lg hero__cta">
+            Ver produtos
+          </a>
+
+        </div>
+
+        <!-- Área visual do banner.
+             aria-hidden="true" indica que é decorativa. -->
+        <div class="hero__media" aria-hidden="true">
+
+          <!-- Elemento visual estilizado pelo CSS. -->
+          <div class="hero__device"></div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         CATEGORIAS
+         Exibe os principais tipos de produtos disponíveis.
+    ===================================================== -->
+
+    <section class="categories" aria-labelledby="categories-title">
+
+      <div class="container">
+
+        <h2 id="categories-title" class="section-title">
+          Encontre o que você precisa
+        </h2>
+
+        <!-- Lista de categorias. -->
+        <ul class="categories__list">
+
+          <!-- Cada LI representa uma categoria.
+               O link direciona para a página de produtos. -->
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">💻</span>
+              Notebooks
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">🖥️</span>
+              Monitores
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">⌨️</span>
+              Teclados
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">🖱️</span>
+              Mouses
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">🎧</span>
+              Headsets
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">📱</span>
+              Celulares
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">🎮</span>
+              Games
+            </a>
+          </li>
+
+          <li>
+            <a href="pages/produtos.html" class="categories__card">
+              <span class="categories__icon" aria-hidden="true">🔌</span>
+              Acessórios
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         PRODUTOS EM DESTAQUE
+         Mostra produtos selecionados na página inicial.
+    ===================================================== -->
+
+    <section class="products-section" aria-labelledby="featured-title">
+
+      <div class="container">
+
+        <h2 id="featured-title" class="section-title">
+          Produtos em destaque
+        </h2>
+
+        <!--
+          products-grid:
+          Container que organiza os cartões de produtos.
+
+          id="featured-grid":
+          Permite que o JavaScript encontre essa área.
+
+          Os produtos desta versão são estáticos.
+        -->
+        <div class="products-grid" id="featured-grid">
+
+          <!-- ================= PRODUTO 1 =================
+               Notebook Nexus A15.
+               data-product-id identifica o produto. -->
+          <article class="product-card" data-product-id="1" aria-label="Notebook Nexus A15">
+
+            <!-- Área da imagem e dos elementos visuais. -->
+            <div class="product-card__media">
+
+              <!-- Etiquetas de promoção. -->
+              <div class="product-card__badges">
+                <span class="badge badge--discount">-13%</span>
+              </div>
+
+              <!-- Botão de favoritos do produto. -->
+              <button type="button" class="product-card__fav" aria-label="Favoritar Notebook Nexus A15">
+
+                <!-- Ícone de coração. -->
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+              </button>
+
+              <!-- Placeholder:
+                   Letra apresentada enquanto não existe imagem real. -->
+              <span class="product-card__placeholder" aria-hidden="true">N</span>
+
+            </div>
+
+            <!-- Informações do produto. -->
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Notebook Nexus A15</h3>
+
+              <!-- Avaliação do produto. -->
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★★</span>
+                <span class="rating__value">4.6</span>
+                <span class="rating__count">(128)</span>
+              </div>
+
+              <!-- Preços do produto. -->
+              <div class="product-card__price">
+                <span class="product-card__price-old">R$ 4.599,90</span>
+                <span class="product-card__price-current">R$ 3.999,90</span>
+              </div>
+
+              <!-- Botão para adicionar ao carrinho. -->
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ================= PRODUTO 2 =================
+               Monitor Nexus 27 QHD. -->
+          <article class="product-card" data-product-id="3" aria-label="Monitor Nexus 27 QHD">
+
+            <div class="product-card__media">
+
+              <div class="product-card__badges">
+                <span class="badge badge--new">Novo</span>
+              </div>
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Monitor Nexus 27 QHD">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">M</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Monitor Nexus 27" QHD</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★☆</span>
+                <span class="rating__value">4.4</span>
+                <span class="rating__count">(86)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-old">R$ 1.299,90</span>
+                <span class="product-card__price-current">R$ 1.049,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ================= PRODUTO 3 =================
+               Teclado mecânico Nexus RGB. -->
+          <article class="product-card" data-product-id="4" aria-label="Teclado mecânico Nexus RGB">
+
+            <div class="product-card__media">
+
+              <div class="product-card__badges">
+                <span class="badge badge--discount">-20%</span>
+              </div>
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Teclado Nexus RGB">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">T</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Teclado Mecânico Nexus RGB</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★★</span>
+                <span class="rating__value">4.8</span>
+                <span class="rating__count">(312)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-old">R$ 499,90</span>
+                <span class="product-card__price-current">R$ 399,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ================= PRODUTO 4 =================
+               Headset gamer Nexus Pro. -->
+          <article class="product-card" data-product-id="5" aria-label="Headset gamer Nexus Pro">
+
+            <div class="product-card__media">
+
+              <div class="product-card__badges">
+                <span class="badge badge--bestseller">Mais vendido</span>
+              </div>
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Headset Nexus Pro">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">H</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Headset Gamer Nexus Pro</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★★</span>
+                <span class="rating__value">4.9</span>
+                <span class="rating__count">(540)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-current">R$ 299,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         OFERTAS DA SEMANA
+         Seção promocional com chamada para visualizar ofertas.
+    ===================================================== -->
+
+    <section class="container offers" id="ofertas" aria-labelledby="offers-title">
+
+      <div>
+
+        <p class="offers__eyebrow">Ofertas da semana</p>
+
+        <h2 id="offers-title" class="offers__title">
+          Até 30% OFF em produtos selecionados
+        </h2>
+
+        <p class="offers__text">
+          Aproveite descontos exclusivos em itens escolhidos a dedo.
+        </p>
+
+      </div>
+
+      <!-- Botão de acesso às ofertas. -->
+      <a href="pages/produtos.html" class="btn btn--lg offers__cta">
+        Conferir ofertas
+      </a>
+
+    </section>
+
+    <!-- ====================================================
+         MAIS VENDIDOS
+         Exibe produtos com destaque de vendas.
+         products-section--alt é um modificador visual.
+    ===================================================== -->
+
+    <section class="products-section products-section--alt" aria-labelledby="bestsellers-title">
+
+      <div class="container">
+
+        <h2 id="bestsellers-title" class="section-title">
+          Mais vendidos
+        </h2>
+
+        <!-- Container dos cartões de produtos mais vendidos. -->
+        <div class="products-grid" id="bestsellers-grid">
+
+          <!-- PRODUTO 1: Celular Nexus X20. -->
+          <article class="product-card" data-product-id="6" aria-label="Celular Nexus X20">
+
+            <div class="product-card__media">
+
+              <div class="product-card__badges">
+                <span class="badge badge--bestseller">Mais vendido</span>
+              </div>
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Celular Nexus X20">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">C</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Celular Nexus X20</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★☆</span>
+                <span class="rating__value">4.5</span>
+                <span class="rating__count">(920)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-old">R$ 2.999,90</span>
+                <span class="product-card__price-current">R$ 2.499,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- PRODUTO 2: Mouse Gamer Nexus M1. -->
+          <article class="product-card" data-product-id="7" aria-label="Mouse gamer Nexus M1">
+
+            <div class="product-card__media">
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Mouse Nexus M1">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">M</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Mouse Gamer Nexus M1</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★★</span>
+                <span class="rating__value">4.7</span>
+                <span class="rating__count">(780)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-current">R$ 149,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- PRODUTO 3: Notebook Nexus Ultra Pro. -->
+          <article class="product-card" data-product-id="2" aria-label="Notebook Nexus Ultra Pro">
+
+            <div class="product-card__media">
+
+              <div class="product-card__badges">
+                <span class="badge badge--discount">-10%</span>
+              </div>
+
+              <button type="button" class="product-card__fav" aria-label="Favoritar Notebook Nexus Ultra Pro">
+
+                <svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+
+                </svg>
+
+              </button>
+
+              <span class="product-card__placeholder" aria-hidden="true">N</span>
+
+            </div>
+
+            <div class="product-card__body">
+
+              <span class="product-card__brand">Nexus</span>
+
+              <h3 class="product-card__name">Notebook Nexus Ultra Pro</h3>
+
+              <div class="rating">
+                <span class="rating__stars" aria-hidden="true">★★★★★</span>
+                <span class="rating__value">4.9</span>
+                <span class="rating__count">(421)</span>
+              </div>
+
+              <div class="product-card__price">
+                <span class="product-card__price-old">R$ 7.999,90</span>
+                <span class="product-card__price-current">R$ 7.199,90</span>
+              </div>
+
+              <div class="product-card__actions">
+                <button type="button" class="btn btn--primary btn--block">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         NEWSLETTER
+         Formulário para cadastro de e-mail dos visitantes.
+    ===================================================== -->
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+
+      <div class="container newsletter__inner">
+
+        <h2 id="newsletter-title" class="newsletter__title">
+          Fique por dentro das novidades
+        </h2>
+
+        <p class="newsletter__text">
+          Cadastre-se e receba em primeira mão ofertas, lançamentos e conteúdos exclusivos da Nexus Tech.
+        </p>
+
+        <!-- Formulário de cadastro.
+             id permite que o JavaScript encontre o formulário. -->
+        <form class="newsletter__form" id="newsletter-form">
+
+          <!-- Label acessível para o campo de e-mail. -->
+          <label class="sr-only" for="newsletter-email">
+            Seu melhor e-mail
+          </label>
+
+          <!-- Campo de e-mail.
+               type=email: espera um endereço de e-mail.
+               required: exige preenchimento.
+               autocomplete=email: auxilia o preenchimento automático. -->
+          <input
+            type="email"
+            id="newsletter-email"
+            class="newsletter__input"
+            placeholder="Seu melhor e-mail"
+            autocomplete="email"
+            required
+          >
+
+          <!-- Botão de envio do formulário. -->
+          <button type="submit" class="btn btn--primary">
+            Assinar
+          </button>
+
+        </form>
+
+        <!-- Área para apresentar mensagens de sucesso ou erro.
+             hidden: começa escondida.
+             aria-live: anuncia alterações para leitores de tela. -->
+        <p class="alert" id="newsletter-feedback" role="status" aria-live="polite" hidden></p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER — RODAPÉ
+       Contém informações institucionais e links importantes.
+  ======================================================= -->
+
+  <footer class="site-footer" id="contato" role="contentinfo">
+
+    <div class="container">
+
+      <!-- Organização das colunas do rodapé. -->
+      <div class="site-footer__grid">
+
+        <!-- COLUNA 1: Identidade da marca. -->
+        <div class="site-footer__brand-col">
+
+          <p class="site-footer__brand">
+            NEXUS<span class="site-footer__brand-accent">TECH</span>
+          </p>
+
+          <p class="site-footer__tagline">
+            Tecnologia que conecta você ao futuro.
+          </p>
+
+        </div>
+
+        <!-- COLUNA 2: Links da loja. -->
+        <nav aria-label="Loja">
+
+          <p class="site-footer__heading">Loja</p>
+
+          <ul class="site-footer__list">
+            <li><a href="pages/produtos.html" class="site-footer__link">Produtos</a></li>
+            <li><a href="#ofertas" class="site-footer__link">Ofertas</a></li>
+            <li><a href="#bestsellers-title" class="site-footer__link">Mais vendidos</a></li>
+          </ul>
+
+        </nav>
+
+        <!-- COLUNA 3: Atendimento ao cliente. -->
+        <nav aria-label="Atendimento">
+
+          <p class="site-footer__heading">Atendimento</p>
+
+          <ul class="site-footer__list">
+            <li><a href="pages/ajuda.html" class="site-footer__link">Central de ajuda</a></li>
+            <li><a href="pages/contato.html" class="site-footer__link">Contato</a></li>
+            <li><a href="pages/faq.html" class="site-footer__link">FAQ</a></li>
+          </ul>
+
+        </nav>
+
+        <!-- COLUNA 4: Informações institucionais. -->
+        <nav aria-label="Institucional">
+
+          <p class="site-footer__heading">Institucional</p>
+
+          <ul class="site-footer__list">
+            <li><a href="pages/sobre.html" class="site-footer__link">Sobre nós</a></li>
+            <li><a href="pages/privacidade.html" class="site-footer__link">Privacidade</a></li>
+            <li><a href="pages/termos.html" class="site-footer__link">Termos</a></li>
+          </ul>
+
+        </nav>
+
+        <!-- COLUNA 5: Redes sociais. -->
+        <div>
+
+          <p class="site-footer__heading">Redes sociais</p>
+
+          <div class="site-footer__social">
+
+            <!-- Links ainda sem endereço real. -->
+            <a href="#" class="site-footer__social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="site-footer__social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="site-footer__social-btn" aria-label="YouTube">YT</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PARTE INFERIOR DO FOOTER:
+           Formas de pagamento e direitos autorais. -->
+      <div class="site-footer__bottom">
+
+        <!-- Formas de pagamento aceitas. -->
+        <div class="site-footer__payments" aria-label="Formas de pagamento aceitas">
+
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">MASTERCARD</span>
+          <span class="pay-badge">PIX</span>
+          <span class="pay-badge">BOLETO</span>
+
+        </div>
+
+        <!-- Direitos autorais.
+             O JavaScript pode atualizar o ano automaticamente. -->
+        <p class="site-footer__copy">
+          © <span id="footer-year">2026</span> Nexus Tech. Todos os direitos reservados.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       JAVASCRIPT
+       Arquivos responsáveis pelas interações da página.
+  ======================================================= -->
+
+  <!-- HEADER.JS:
+       Controla o menu do cabeçalho, especialmente a navegação mobile. -->
+  <script src="assets/js/modules/header.js"></script>
+
+  <!-- HOME.JS:
+       type="module" habilita a utilização de módulos JavaScript.
+       Controla interações dos cards, favoritos, carrinho e newsletter. -->
+  <script type="module" src="assets/js/modules/home/home.js"></script>
+
+</body>
+</html>

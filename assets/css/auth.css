@@ -1,0 +1,449 @@
+/* ==========================================================================
+   NEXUS TECH — Autenticação de usuário (v2.0 cadastro / v2.1 login)
+   Páginas de criação de conta e login: cabeçalho, formulários, consentimentos,
+   estado de sucesso, sessão do header. Reutiliza tokens, .btn, .alert,
+   .breadcrumb, .contact-form__* e o padrão de validação com mensagens
+   associadas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LAYOUT GERAL DA PÁGINA
+-------------------------------------------------------------------------- */
+
+.auth {
+  padding-block: var(--space-5) var(--space-8);
+}
+
+.auth__header {
+  margin-bottom: var(--space-5);
+}
+
+.auth__title {
+  font-size: var(--text-3xl);
+  margin-top: var(--space-2);
+}
+
+.auth__title-accent {
+  color: var(--color-primary);
+}
+
+.auth__lead {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.auth-demo {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.auth__layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 720px;
+}
+
+/* --------------------------------------------------------------------------
+   FORMULÁRIO DE CADASTRO
+-------------------------------------------------------------------------- */
+
+.auth__card {
+  width: 100%;
+}
+
+.auth__fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.auth__legend {
+  width: 100%;
+  font-family: var(--font-family-brand);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.auth__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+@media (min-width: 600px) {
+  .auth__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.auth__field--full {
+  grid-column: 1 / -1;
+}
+
+.auth__security-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+}
+
+/* Requisitos da senha (hint associado ao campo) */
+.auth__hint {
+  margin-top: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.auth__hint-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+.auth__hint-list {
+  margin-top: var(--space-1);
+  padding-left: var(--space-4);
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   CONSENTIMENTOS (checkbox acessível)
+-------------------------------------------------------------------------- */
+
+.auth__consent-field {
+  gap: var(--space-2);
+}
+
+.auth__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  cursor: pointer;
+  margin-top: var(--space-1);
+}
+
+.auth__consent-input {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+}
+
+.auth__consent-input:focus-visible {
+  outline: var(--focus-ring) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.auth__consent-text {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.auth__consent-field.has-error .auth__consent-text {
+  color: var(--color-danger-text);
+}
+
+/* --------------------------------------------------------------------------
+   MENSAGENS / RODAPÉ DO FORMULÁRIO
+-------------------------------------------------------------------------- */
+
+.auth__login-note {
+  margin-top: var(--space-1);
+}
+
+.auth__login-note a {
+  font-weight: var(--font-semibold);
+  text-decoration: underline;
+}
+
+.auth__login-note a:hover {
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   CADASTRO BEM-SUCEDIDO
+-------------------------------------------------------------------------- */
+
+.auth-success {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.auth-success[hidden] {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .auth-success {
+    padding: var(--space-8) var(--space-7);
+  }
+}
+
+.auth-success__icon {
+  width: 56px;
+  height: 56px;
+  color: var(--color-success);
+}
+
+.auth-success__title {
+  font-size: var(--text-3xl);
+}
+
+.auth-success__title[tabindex="-1"] {
+  outline: none;
+}
+
+.auth-success__text {
+  font-size: var(--text-sm);
+  max-width: 46ch;
+}
+
+.auth-success__meta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+}
+
+.auth-success__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   HEADER — ESTADO DE SESSÃO (v2.1)
+   "Minha conta" visível no desktop; chip com nome + "Sair" quando logado.
+-------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+  .icon-btn__label--account {
+    display: inline-flex;
+  }
+}
+
+.account-session {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: var(--space-2);
+}
+
+.account-session__name {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-session__logout {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-primary-text);
+  background: var(--color-primary-soft);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.account-session__logout:hover,
+.account-session__logout:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.account-session__logout:focus-visible {
+  outline: var(--focus-ring) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 899px) {
+  .account-session__name {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PERFIL — ESTADO NÃO AUTENTICADO (v2.1)
+   Aviso + ação "Entrar" enquanto não houver sessão vinculada.
+-------------------------------------------------------------------------- */
+
+.profile-auth {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+}
+
+.profile-auth[hidden] {
+  display: none;
+}
+
+.profile-auth__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+/* --------------------------------------------------------------------------
+   CADASTRO PHP (v4.0) — senha, medidor, e-mail e honeypot
+-------------------------------------------------------------------------- */
+
+.auth__password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth__password-input {
+  padding-right: 6.5rem;
+}
+
+.auth__password-toggle {
+  position: absolute;
+  right: var(--space-1);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-1) var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  color: var(--color-primary-text);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.auth__password-toggle:hover,
+.auth__password-toggle:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.auth__password-toggle:focus-visible {
+  outline: var(--focus-ring) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.auth__strength {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.auth__strength[hidden] {
+  display: none;
+}
+
+.auth__strength-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.auth__strength-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--color-danger);
+  border-radius: inherit;
+  transition: width var(--transition-fast), background-color var(--transition-fast);
+}
+
+.auth__strength[data-score="1"] .auth__strength-fill {
+  width: 25%;
+  background: var(--color-danger);
+}
+
+.auth__strength[data-score="2"] .auth__strength-fill {
+  width: 50%;
+  background: var(--color-warning);
+}
+
+.auth__strength[data-score="3"] .auth__strength-fill {
+  width: 75%;
+  background: var(--color-primary);
+}
+
+.auth__strength[data-score="4"] .auth__strength-fill {
+  width: 100%;
+  background: var(--color-success);
+}
+
+.auth__strength-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+#register-email-status[data-state="taken"] {
+  color: var(--color-danger-text);
+  font-weight: var(--font-semibold);
+}
+
+#register-email-status[data-state="available"] {
+  color: var(--color-success);
+  font-weight: var(--font-semibold);
+}
+
+#register-email-status[data-state="loading"] {
+  color: var(--color-text-muted);
+}
+
+/* Honeypot: invisivel para pessoas, presente para robos */
+.auth__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

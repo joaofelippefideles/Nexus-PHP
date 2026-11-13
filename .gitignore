@@ -1,0 +1,64 @@
+# ==========================================================================
+# NEXUS TECH — .gitignore
+# ==========================================================================
+
+# --- Sistema operacional ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+# --- Editores / IDEs ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.user
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# --- Node.js (caso um backend JS venha a ser adicionado) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# --- Backend / servidor (futuro) ---
+server/vendor/
+server/.env
+server/.env.local
+server/data/admins.json
+.env
+.env.local
+.env.*.local
+*.sqlite
+*.sqlite3
+
+# --- Backend PHP ---
+includes/config.local.php
+database/*.db
+database/*.db-wal
+database/*.db-shm
+
+# --- Compilados / temporários ---
+dist/
+build/
+coverage/
+tmp/
+temp/
+*.tmp
+
+# --- Entrega acadêmica ---
+Nexus-Tech-*.zip

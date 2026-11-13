@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Marca — Nexus Tech</title>
+  <meta name="description" content="Criar ou editar marca do catálogo Nexus Tech.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body data-page="admin-brands">
+
+  <div class="admin-shell">
+
+    <header class="admin-topbar">
+      <a href="index.html" class="admin-topbar__brand" aria-label="Nexus Tech — Painel">
+        NEXUS<span class="admin-topbar__brand-accent">TECH</span>
+        <span class="admin-topbar__brand-accent"> Admin</span>
+      </a>
+
+      <nav class="admin-nav" aria-label="Navegação do painel">
+        <a href="index.html" class="admin-nav__link">Dashboard</a>
+        <a href="products.html" class="admin-nav__link">Produtos</a>
+        <a href="brands.html" class="admin-nav__link is-active" aria-current="page">Marcas</a>
+        <a href="categories.html" class="admin-nav__link">Categorias</a>
+      </nav>
+
+      <div class="admin-topbar__session">
+        <span class="admin-topbar__who">
+          <span class="admin-topbar__name" id="admin-topbar-name"></span>
+          <span class="admin-topbar__email" id="admin-topbar-email"></span>
+        </span>
+        <button type="button" class="admin-topbar__logout" id="admin-logout">Sair</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-pagehead">
+        <div>
+          <a href="brands.html" class="admin-back">&larr; Voltar para marcas</a>
+          <h1 class="admin-main__title" id="form-title">Nova marca</h1>
+        </div>
+      </div>
+
+      <div class="admin-alert" id="brand-alert" hidden role="alert"></div>
+
+      <section class="admin-card">
+        <form id="brand-form" novalidate>
+          <div class="admin-form__grid">
+            <div class="admin-form__field">
+              <label class="admin-form__label" for="field-name">Nome *</label>
+              <input type="text" id="field-name" class="admin-input" maxlength="100" autocomplete="off">
+            </div>
+
+            <div class="admin-form__field">
+              <label class="admin-form__label" for="field-slug">Slug</label>
+              <input type="text" id="field-slug" class="admin-input" maxlength="120" autocomplete="off">
+              <p class="admin-form__hint" id="slug-hint">
+                Se vazio, será gerado automaticamente a partir do nome.
+              </p>
+            </div>
+          </div>
+
+          <div class="admin-form__actions">
+            <button type="button" id="form-cancel" class="admin-btn admin-btn--ghost">Cancelar</button>
+            <button type="submit" id="form-submit" class="admin-btn admin-btn--primary">
+              Salvar marca
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+  </div>
+
+  <script type="module" src="../../assets/js/modules/admin/shell.js"></script>
+  <script type="module" src="../../assets/js/modules/admin/brand-form.js"></script>
+</body>
+</html>

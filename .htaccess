@@ -1,0 +1,36 @@
+# ==========================================================================
+# NEXUS TECH — Configuração Apache (raiz do projeto)
+# --------------------------------------------------------------------------
+# Funciona no XAMPP/Apache 2.4. Se o projeto for servido pelo servidor
+# embutido do PHP (php -S), este arquivo é ignorado; nesse caso o diretório
+# `server/` e os arquivos `.env` devem ficar fora do document root.
+# ==========================================================================
+
+Options -Indexes
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Bloqueia acesso direto a pastas internas e sensíveis
+  RewriteRule ^(server|logs|database|includes)(/|$) - [F,L]
+  RewriteRule (^|/)\.(env|git) - [F,L]
+</IfModule>
+
+# Bloqueia arquivos de configuração, banco local e logs
+<FilesMatch "^(\.env.*|.*\.(sql|log|db|sqlite|sqlite3|db-wal|db-shm))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Cabeçalhos básicos de segurança (quando o módulo estiver disponível)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

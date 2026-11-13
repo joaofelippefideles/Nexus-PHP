@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Sobre a Nexus Tech — Quem Somos</title>
+  <meta name="description" content="Conheça a Nexus Tech: nossa história, missão, visão e valores. Tecnologia que conecta você ao futuro.">
+  <meta property="og:title" content="Sobre a Nexus Tech">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Tecnologia que conecta você ao futuro. Conheça a missão, visão e valores da Nexus Tech.">
+
+  <!-- Favicon (placeholder SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2306b6d4'>N</text></svg>">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="about">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <a href="../index.html" class="site-header__logo" aria-label="Nexus Tech — Página inicial">
+        <span class="site-header__logo-mark">NEXUS</span>
+        <span class="site-header__logo-accent">TECH</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Home</a></li>
+          <li><a href="produtos.html" class="main-nav__link">Produtos</a></li>
+          <li><a href="../index.html#ofertas" class="main-nav__link">Ofertas</a></li>
+          <li><a href="contato.html" class="main-nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <form class="site-header__search search" role="search" aria-label="Buscar produtos">
+        <span class="search__icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <label class="sr-only" for="search-header">Buscar produtos, marcas e categorias</label>
+        <input
+          type="search"
+          id="search-header"
+          name="q"
+          class="search__input"
+          placeholder="Buscar produtos, marcas e categorias..."
+          autocomplete="off"
+        >
+        <button type="submit" class="search__btn">Buscar</button>
+      </form>
+
+      <div class="site-header__actions">
+
+        <button type="button" class="icon-btn" aria-label="Favoritos">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="icon-btn__count" id="favorites-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Favoritos</span>
+        </button>
+
+        <button type="button" class="icon-btn" aria-label="Carrinho de compras">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="icon-btn__count" id="cart-count" aria-hidden="true">0</span>
+          <span class="icon-btn__label">Carrinho</span>
+        </button>
+
+        <a href="perfil.html" class="icon-btn icon-btn__label--account" aria-label="Minha conta">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="icon-btn__label">Minha conta</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL — SOBRE NÓS
+  ============================================================= -->
+  <main>
+    <section class="institutional" aria-labelledby="about-title">
+      <div class="container">
+
+        <div class="institutional__header">
+
+          <nav class="breadcrumb" aria-label="Trilha de navegação">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="../index.html" class="breadcrumb__link">Home</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <a href="sobre.html" class="breadcrumb__link">Institucional</a>
+                <span class="breadcrumb__separator" aria-hidden="true">/</span>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__current" aria-current="page">Sobre nós</span>
+              </li>
+            </ol>
+          </nav>
+
+          <h1 id="about-title" class="institutional__title">
+            Sobre a <span class="institutional__title-accent">Nexus Tech</span>
+          </h1>
+
+          <p class="institutional__lead">
+            Tecnologia que conecta você ao futuro.
+          </p>
+
+        </div>
+
+        <!-- Nossa história -->
+        <section class="about-section" aria-labelledby="about-history">
+          <div class="about-story">
+
+            <div class="about-story__text">
+              <h2 id="about-history" class="about-section__title">Quem somos</h2>
+              <p>
+                A Nexus Tech nasceu com um propósito claro: facilitar o acesso à
+                tecnologia de qualidade no Brasil. O que começou como uma pequena
+                vitrine de informática cresceu e se tornou uma referência em
+                notebooks, componentes, periféricos e acessórios para quem vive
+                conectado.
+              </p>
+              <p>
+                Combinamos curadoria de produtos, preços justos e atendimento próximo
+                para construir uma experiência de compra simples e confiável. Cada
+                item do nosso catálogo passa por uma seleção criteriosa para garantir
+                que você encontre exatamente o que precisa — do estudante ao gamer,
+                do escritório ao home office.
+              </p>
+              <p>
+                Estamos em constante evolução: novas categorias, parcerias e
+                funcionalidades chegando a cada etapa do projeto.
+              </p>
+            </div>
+
+            <aside class="about-statement" aria-label="Conceito da Nexus Tech">
+              <p class="about-statement__concept">
+                Tecnologia que conecta
+                <span class="about-statement__concept-accent">você ao futuro.</span>
+              </p>
+              <p>
+                Esse é o nosso conceito: entregar inovação de forma acessível, para
+                que a tecnologia do amanhã esteja ao seu alcance hoje.
+              </p>
+            </aside>
+
+          </div>
+        </section>
+
+        <!-- Missão / Visão / Valores -->
+        <section class="about-section" aria-labelledby="about-mvv">
+          <h2 id="about-mvv" class="about-section__title">Missão, visão e valores</h2>
+
+          <div class="about-mvv">
+
+            <div class="about-mvv__card">
+              <h3 class="about-mvv__title">Missão</h3>
+              <p class="about-mvv__text">
+                Conectar pessoas às melhores tecnologias, oferecendo produtos de
+                qualidade, preço justo e uma experiência de compra simples, segura
+                e transparente.
+              </p>
+            </div>
+
+            <div class="about-mvv__card">
+              <h3 class="about-mvv__title">Visão</h3>
+              <p class="about-mvv__text">
+                Ser referência em tecnologia no Brasil, conhecida pela curadoria
+                confiável e por antecipar as necessidades de quem vive conectado.
+              </p>
+            </div>
+
+            <div class="about-mvv__card">
+              <h3 class="about-mvv__title">Valores</h3>
+              <p class="about-mvv__text">
+                Transparência, inovação, respeito ao cliente, compromisso com a
+                qualidade e responsabilidade social e ambiental.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Valores em detalhe -->
+        <section class="about-section" aria-labelledby="about-values">
+          <h2 id="about-values" class="about-section__title">O que valorizamos</h2>
+
+          <div class="about-values">
+
+            <div class="about-value">
+              <h3 class="about-value__title">Transparência</h3>
+              <p class="about-value__desc">
+                Preço claro, prazos informados e políticas simples de entender em cada etapa da compra.
+              </p>
+            </div>
+
+            <div class="about-value">
+              <h3 class="about-value__title">Inovação</h3>
+              <p class="about-value__desc">
+                Acompanhamos as tendências do mercado para trazer os lançamentos e as melhores tecnologias.
+              </p>
+            </div>
+
+            <div class="about-value">
+              <h3 class="about-value__title">Qualidade</h3>
+              <p class="about-value__desc">
+                Curadoria criteriosa e controle de estoque para oferecer somente produtos selecionados.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about-section" aria-labelledby="about-cta">
+          <div class="alert alert--info">
+            <p>
+              Explore o catálogo e encontre o produto ideal para você:
+              <a href="produtos.html">ver produtos</a>.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand-col">
+          <p class="site-footer__brand">NEXUS<span class="site-footer__brand-accent">TECH</span></p>
+          <p class="site-footer__tagline">Tecnologia que conecta você ao futuro.</p>
+        </div>
+
+        <nav aria-label="Loja">
+          <p class="site-footer__heading">Loja</p>
+          <ul class="site-footer__list">
+            <li><a href="produtos.html" class="site-footer__link">Produtos</a></li>
+            <li><a href="../index.html#ofertas" class="site-footer__link">Ofertas</a></li>
+            <li><a href="../index.html#bestsellers-title" class="site-footer__link">Mais vendidos</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Atendimento">
+          <p class="site-footer__heading">Atendimento</p>
+          <ul class="site-footer__list">
+            <li><a href="ajuda.html" class="site-footer__link">Central de ajuda</a></li>
+            <li><a href="contato.html" class="site-footer__link">Contato</a></li>
+            <li><a href="faq.html" class="site-footer__link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Institucional">
+          <p class="site-footer__heading">Institucional</p>
+          <ul class="site-footer__list">
+            <li><a href="sobre.html" class="site-footer__link" aria-current="page">Sobre nós</a></li>
+            <li><a href="privacidade.html" class="site-footer__link">Privacidade</a></li>
+            <li><a href="termos.html" class="site-footer__link">Termos</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__heading">Redes sociais</p>
+          <div class="site-footer__social">
+            <a href="#" class="site-footer__social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="site-footer__social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="site-footer__social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__payments" aria-label="Formas de pagamento aceitas">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">MASTERCARD</span>
+          <span class="pay-badge">PIX</span>
+          <span class="pay-badge">BOLETO</span>
+        </div>
+        <p class="site-footer__copy">© <span id="footer-year">2026</span> Nexus Tech. Todos os direitos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/modules/header.js"></script>
+</body>
+</html>
